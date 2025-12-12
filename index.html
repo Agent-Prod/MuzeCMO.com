@@ -232,6 +232,8 @@
       let fbp = getCookie('_fbp');
       if (fbp) {
         console.log('Found existing _fbp cookie:', fbp);
+        // Also backup to localStorage
+        try { localStorage.setItem('_fbp', fbp); } catch (e) { }
         return fbp;
       }
 
@@ -268,18 +270,41 @@
       return fbp;
     }
 
+    // Store fbp in memory as immediate fallback
+    let cachedFbp = null;
+
     // Wait for Meta Pixel to set cookies, then fallback to generation
-    function waitForFbp(timeout = 3000) {
+    function waitForFbp(timeout = 2000) {
       return new Promise((resolve) => {
+        // If we already have a cached value, use it immediately
+        if (cachedFbp) {
+          console.log('Using cached fbp:', cachedFbp);
+          resolve(cachedFbp);
+          return;
+        }
+
         const startTime = Date.now();
         const checkFbp = () => {
           // Check cookie first
           let fbp = getCookie('_fbp');
           if (fbp) {
             console.log('Facebook Pixel _fbp cookie found:', fbp);
+            cachedFbp = fbp;
             resolve(fbp);
             return;
           }
+
+          // Check localStorage
+          try {
+            fbp = localStorage.getItem('_fbp');
+            if (fbp) {
+              console.log('Found _fbp in localStorage:', fbp);
+              cachedFbp = fbp;
+              setCookie('_fbp', fbp, 90);
+              resolve(fbp);
+              return;
+            }
+          } catch (e) { }
 
           // Check fbq state
           try {
@@ -288,6 +313,7 @@
               if (state && state.pixels && state.pixels.length > 0 && state.pixels[0].fbp) {
                 fbp = state.pixels[0].fbp;
                 console.log('Retrieved fbp from fbq state:', fbp);
+                cachedFbp = fbp;
                 setCookie('_fbp', fbp, 90);
                 try { localStorage.setItem('_fbp', fbp); } catch (e) { }
                 resolve(fbp);
@@ -300,13 +326,34 @@
           if (Date.now() - startTime < timeout) {
             setTimeout(checkFbp, 100);
           } else {
-            // Timeout reached - use initializeFbp which generates if needed
-            resolve(initializeFbp());
+            // Timeout reached - generate new fbp
+            fbp = formatFbp();
+            cachedFbp = fbp;
+            setCookie('_fbp', fbp, 90);
+            try { localStorage.setItem('_fbp', fbp); } catch (e) { }
+            console.log('Generated new _fbp after timeout:', fbp);
+            resolve(fbp);
           }
         };
         checkFbp();
       });
     }
+
+    // Initialize fbp immediately on script load
+    (function () {
+      try {
+        // Try to get existing fbp or generate immediately
+        cachedFbp = getCookie('_fbp') || localStorage.getItem('_fbp');
+        if (!cachedFbp) {
+          cachedFbp = formatFbp();
+          setCookie('_fbp', cachedFbp, 90);
+          try { localStorage.setItem('_fbp', cachedFbp); } catch (e) { }
+          console.log('Pre-initialized _fbp:', cachedFbp);
+        }
+      } catch (e) {
+        console.error('Error pre-initializing fbp:', e);
+      }
+    })();
 
     // Main event tracking function
     async function trackEvent(options) {
