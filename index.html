@@ -146,20 +146,10 @@
     // Configuration
     const API_BASE_URL = 'https://backend.muzecmo.com/api/v1'; // Replace with your actual API URL
 
-    // Utility function to create fbc parameter from fbclid
-    function makeFbc(fbclid) {
-      const timestamp = Date.now();
-      return 'fb.1.' + timestamp + '.' + fbclid;
-    }
-
-    // Utility function to generate fbp if missing
-    function generateFbp() {
-      const version = 'fb';
-      const subdomainIndex = 1;
-      const creationTime = Date.now();
-      const randomNumber = Math.floor(Math.random() * 1000000000 + 1);
-      return version + '.' + subdomainIndex + '.' + creationTime + '.' + randomNumber;
-    }
+    // ============================================
+    // Meta fbc/fbp Implementation (per docs)
+    // https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/fbp-and-fbc/
+    // ============================================
 
     // Utility function to get cookie value
     function getCookie(name) {
@@ -169,68 +159,149 @@
       return null;
     }
 
-    // Utility function to set cookie
-    function setCookie(name, value, days) {
-      let expires = "";
-      if (days) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-      }
-      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    // Utility function to set cookie with 90 days expiration (per Meta docs)
+    function setCookie(name, value, days = 90) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      const expires = "; expires=" + date.toUTCString();
+      document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
     }
 
-    // Wait for Facebook Pixel to initialize and get fbp
-    function waitForFbp(timeout = 5000) {
+    // Extract fbclid from existing _fbc cookie value (after the last ".")
+    function getFbclidFromFbc(fbcValue) {
+      if (!fbcValue) return null;
+      const parts = fbcValue.split('.');
+      // Format is fb.1.timestamp.fbclid - fbclid is after the 3rd dot
+      if (parts.length >= 4) {
+        return parts.slice(3).join('.');
+      }
+      return null;
+    }
+
+    // 1. RETRIEVE & 2. FORMAT ClickID (fbc)
+    // Format: fb.1.{creationTime}.{fbclid}
+    // - version: always "fb"
+    // - subdomainIndex: 1 for domain.com
+    // - creationTime: UNIX timestamp in milliseconds
+    // - fbclid: the click ID from URL
+    function formatFbc(fbclid, timestamp = Date.now()) {
+      return 'fb.1.' + timestamp + '.' + fbclid;
+    }
+
+    // FORMAT fbp
+    // Format: fb.1.{creationTime}.{randomNumber}
+    // - version: always "fb"
+    // - subdomainIndex: 1 for domain.com
+    // - creationTime: UNIX timestamp in milliseconds
+    // - randomNumber: unique random identifier
+    function formatFbp(timestamp = Date.now()) {
+      const randomNumber = Math.floor(Math.random() * 2147483647 + 1);
+      return 'fb.1.' + timestamp + '.' + randomNumber;
+    }
+
+    // 3. STORE ClickID - Initialize fbc from URL and store in cookie
+    function initializeFbc() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const fbclid = urlParams.get('fbclid');
+
+      if (!fbclid) {
+        // No fbclid in URL, return existing cookie value if any
+        return getCookie('_fbc');
+      }
+
+      // Check existing _fbc cookie
+      const existingFbc = getCookie('_fbc');
+      const existingFbclid = getFbclidFromFbc(existingFbc);
+
+      // Only set cookie if:
+      // - _fbc cookie doesn't exist, OR
+      // - fbclid in URL differs from the one in cookie
+      if (!existingFbc || existingFbclid !== fbclid) {
+        const newFbc = formatFbc(fbclid);
+        setCookie('_fbc', newFbc, 90);
+        console.log('Stored new _fbc cookie:', newFbc);
+        return newFbc;
+      }
+
+      return existingFbc;
+    }
+
+    // Initialize fbp - Check cookie first, generate if missing
+    function initializeFbp() {
+      // 1. Check existing _fbp cookie (may be set by Meta Pixel)
+      let fbp = getCookie('_fbp');
+      if (fbp) {
+        console.log('Found existing _fbp cookie:', fbp);
+        return fbp;
+      }
+
+      // 2. Check localStorage as backup
+      try {
+        fbp = localStorage.getItem('_fbp');
+        if (fbp) {
+          console.log('Found _fbp in localStorage:', fbp);
+          // Restore to cookie
+          setCookie('_fbp', fbp, 90);
+          return fbp;
+        }
+      } catch (e) { }
+
+      // 3. Check fbq state (Meta Pixel internal state)
+      try {
+        if (window.fbq && window.fbq.getState) {
+          const state = window.fbq.getState();
+          if (state && state.pixels && state.pixels.length > 0 && state.pixels[0].fbp) {
+            fbp = state.pixels[0].fbp;
+            console.log('Retrieved fbp from fbq state:', fbp);
+            setCookie('_fbp', fbp, 90);
+            try { localStorage.setItem('_fbp', fbp); } catch (e) { }
+            return fbp;
+          }
+        }
+      } catch (e) { }
+
+      // 4. Generate new fbp (per Meta docs format)
+      fbp = formatFbp();
+      setCookie('_fbp', fbp, 90);
+      try { localStorage.setItem('_fbp', fbp); } catch (e) { }
+      console.log('Generated new _fbp:', fbp);
+      return fbp;
+    }
+
+    // Wait for Meta Pixel to set cookies, then fallback to generation
+    function waitForFbp(timeout = 3000) {
       return new Promise((resolve) => {
         const startTime = Date.now();
         const checkFbp = () => {
-          // 1. Check cookie
-          const fbpCookie = getCookie('_fbp');
-          if (fbpCookie) {
-            console.log('Facebook Pixel cookie found:', fbpCookie);
-            resolve(fbpCookie);
+          // Check cookie first
+          let fbp = getCookie('_fbp');
+          if (fbp) {
+            console.log('Facebook Pixel _fbp cookie found:', fbp);
+            resolve(fbp);
             return;
           }
 
-          // 2. Check localStorage
-          try {
-            const fbpLS = localStorage.getItem('_fbp');
-            if (fbpLS) {
-              console.log('Facebook Pixel found in localStorage:', fbpLS);
-              // Restore to cookie if missing
-              setCookie('_fbp', fbpLS, 90);
-              resolve(fbpLS);
-              return;
-            }
-          } catch (e) { }
-
-          // 3. Check fbq state
+          // Check fbq state
           try {
             if (window.fbq && window.fbq.getState) {
               const state = window.fbq.getState();
               if (state && state.pixels && state.pixels.length > 0 && state.pixels[0].fbp) {
-                const fbpState = state.pixels[0].fbp;
-                console.log('Retrieved fbp from fbq state:', fbpState);
-                // Persist to cookie/storage
-                setCookie('_fbp', fbpState, 90);
-                try { localStorage.setItem('_fbp', fbpState); } catch (e) { }
-                resolve(fbpState);
+                fbp = state.pixels[0].fbp;
+                console.log('Retrieved fbp from fbq state:', fbp);
+                setCookie('_fbp', fbp, 90);
+                try { localStorage.setItem('_fbp', fbp); } catch (e) { }
+                resolve(fbp);
                 return;
               }
             }
           } catch (e) { }
 
-          // 4. Continue polling or generate fallback
+          // Continue polling or generate
           if (Date.now() - startTime < timeout) {
             setTimeout(checkFbp, 100);
           } else {
-            console.warn('Facebook Pixel cookie not found after', timeout, 'ms. Generating fallback.');
-            const newFbp = generateFbp();
-            // Persist the generated FBP so it becomes the "actual" one for this user
-            setCookie('_fbp', newFbp, 90);
-            try { localStorage.setItem('_fbp', newFbp); } catch (e) { }
-            resolve(newFbp);
+            // Timeout reached - use initializeFbp which generates if needed
+            resolve(initializeFbp());
           }
         };
         checkFbp();
@@ -252,12 +323,8 @@
           return;
         }
 
-        // Get fbclid from URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const fbclid = urlParams.get('fbclid') || undefined;
-        const fbc = fbclid ? makeFbc(fbclid) : getCookie('_fbc');
-
-        // Wait for and get fbp from Facebook Pixel cookie
+        // 4. SEND fbc and fbp with events
+        const fbc = initializeFbc();
         const fbp = await waitForFbp();
 
         console.log('Tracking data:', { fbc, fbp, eventName });
