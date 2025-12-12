@@ -372,7 +372,14 @@
 
         // 4. SEND fbc and fbp with events
         const fbc = initializeFbc();
-        const fbp = await waitForFbp();
+        let fbp = await waitForFbp();
+
+        // GUARANTEED FALLBACK - ensure fbp is never null/undefined
+        if (!fbp) {
+          fbp = formatFbp();
+          cachedFbp = fbp;
+          console.log('Emergency fbp generation:', fbp);
+        }
 
         console.log('Tracking data:', { fbc, fbp, eventName });
 
