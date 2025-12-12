@@ -152,6 +152,15 @@
       return 'fb.1.' + timestamp + '.' + fbclid;
     }
 
+    // Utility function to generate fbp if missing
+    function generateFbp() {
+      const version = 'fb';
+      const subdomainIndex = 1;
+      const creationTime = Date.now();
+      const randomNumber = Math.floor(Math.random() * 1000000000 + 1);
+      return version + '.' + subdomainIndex + '.' + creationTime + '.' + randomNumber;
+    }
+
     // Utility function to get cookie value
     function getCookie(name) {
       const value = '; ' + document.cookie;
@@ -160,8 +169,19 @@
       return null;
     }
 
+    // Utility function to set cookie
+    function setCookie(name, value, days) {
+      let expires = "";
+      if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
     // Wait for Facebook Pixel to initialize and get fbp
-    function waitForFbp(timeout = 10000) {
+    function waitForFbp(timeout = 5000) {
       return new Promise((resolve) => {
         const startTime = Date.now();
         const checkFbp = () => {
@@ -173,26 +193,44 @@
             return;
           }
 
-          // 2. Check fbq state (in case cookie is blocked but pixel loaded)
+          // 2. Check localStorage
+          try {
+            const fbpLS = localStorage.getItem('_fbp');
+            if (fbpLS) {
+              console.log('Facebook Pixel found in localStorage:', fbpLS);
+              // Restore to cookie if missing
+              setCookie('_fbp', fbpLS, 90);
+              resolve(fbpLS);
+              return;
+            }
+          } catch (e) { }
+
+          // 3. Check fbq state
           try {
             if (window.fbq && window.fbq.getState) {
               const state = window.fbq.getState();
               if (state && state.pixels && state.pixels.length > 0 && state.pixels[0].fbp) {
-                console.log('Retrieved fbp from fbq state:', state.pixels[0].fbp);
-                resolve(state.pixels[0].fbp);
+                const fbpState = state.pixels[0].fbp;
+                console.log('Retrieved fbp from fbq state:', fbpState);
+                // Persist to cookie/storage
+                setCookie('_fbp', fbpState, 90);
+                try { localStorage.setItem('_fbp', fbpState); } catch (e) { }
+                resolve(fbpState);
                 return;
               }
             }
-          } catch (e) {
-            // Ignore errors from internal API
-          }
+          } catch (e) { }
 
-          // 3. Continue polling or timeout
+          // 4. Continue polling or generate fallback
           if (Date.now() - startTime < timeout) {
             setTimeout(checkFbp, 100);
           } else {
-            console.warn('Facebook Pixel cookie not found after', timeout, 'ms');
-            resolve(null);
+            console.warn('Facebook Pixel cookie not found after', timeout, 'ms. Generating fallback.');
+            const newFbp = generateFbp();
+            // Persist the generated FBP so it becomes the "actual" one for this user
+            setCookie('_fbp', newFbp, 90);
+            try { localStorage.setItem('_fbp', newFbp); } catch (e) { }
+            resolve(newFbp);
           }
         };
         checkFbp();
