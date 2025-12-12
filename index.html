@@ -160,6 +160,26 @@
       return null;
     }
 
+    // Wait for Facebook Pixel to initialize and get fbp
+    function waitForFbp(timeout = 3000) {
+      return new Promise((resolve) => {
+        const startTime = Date.now();
+        const checkFbp = () => {
+          const fbp = getCookie('_fbp');
+          if (fbp) {
+            console.log('Facebook Pixel cookie found:', fbp);
+            resolve(fbp);
+          } else if (Date.now() - startTime < timeout) {
+            setTimeout(checkFbp, 100);
+          } else {
+            console.warn('Facebook Pixel cookie not found after', timeout, 'ms');
+            resolve(null);
+          }
+        };
+        checkFbp();
+      });
+    }
+
     // Main event tracking function
     async function trackEvent(options) {
       try {
@@ -180,8 +200,10 @@
         const fbclid = urlParams.get('fbclid') || undefined;
         const fbc = fbclid ? makeFbc(fbclid) : getCookie('_fbc');
 
-        // Get fbp from Facebook Pixel cookie
-        const fbp = getCookie('_fbp');
+        // Wait for and get fbp from Facebook Pixel cookie
+        const fbp = await waitForFbp();
+
+        console.log('Tracking data:', { fbc, fbp, eventName });
 
         // Build request body
         const body = {
