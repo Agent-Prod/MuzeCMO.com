@@ -26,7 +26,7 @@
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
       if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
       n.queue = []; t = b.createElement(e); t.async = !0;
@@ -139,6 +139,79 @@
       };
       document.head.appendChild(o);
     })();
+  </script>
+
+  <!-- Custom Event Tracking -->
+  <script>
+    // Configuration
+    const API_BASE_URL = 'https://muzecmo.com'; // Replace with your actual API URL
+
+    // Utility function to create fbc parameter from fbclid
+    function makeFbc(fbclid) {
+      const timestamp = Math.floor(Date.now() / 1000);
+      return 'fb.1.' + timestamp + '.' + fbclid;
+    }
+
+    // Main event tracking function
+    async function trackEvent(options) {
+      try {
+        const eventName = options.event_name || options.eventName;
+        const eventSourceUrl = options.event_source_url || window.location.href;
+        const currency = options.currency || 'USD';
+        const value = options.value;
+        const email = options.email;
+        const phone = options.phone;
+
+        if (!API_BASE_URL) {
+          console.error('API URL not defined');
+          return;
+        }
+
+        // Get fbclid from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const fbclid = urlParams.get('fbclid') || undefined;
+        const fbc = fbclid ? makeFbc(fbclid) : undefined;
+
+        // Build request body
+        const body = {
+          event_name: eventName,
+          event_time: Math.floor(Date.now() / 1000),
+          event_source_url: eventSourceUrl,
+          currency: currency,
+          value: value,
+          email: email,
+          phone: phone
+        };
+
+        if (fbc) body.fbc = fbc;
+
+        // Send tracking request
+        const res = await fetch(API_BASE_URL + '/tracking/track/events', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+          credentials: 'include'
+        });
+
+        const json = await res.json();
+        if (!res.ok) {
+          throw new Error(json?.error?.message || 'Error tracking event');
+        }
+
+        console.log('Event sent to backend:', json);
+        return json;
+      } catch (err) {
+        console.error('Failed to send event:', err);
+      }
+    }
+
+    // Make trackEvent available globally
+    window.trackEvent = trackEvent;
+
+    // Automatically track page view on load
+    window.addEventListener('load', function () {
+      trackEvent({ event_name: 'PageView' });
+    });
   </script>
 
   <style data-framer-font-css>
@@ -12165,7 +12238,7 @@
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
       if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
       n.queue = []; t = b.createElement(e); t.async = !0;
@@ -13972,7 +14045,8 @@
                     style="border:none;display:none;place-content:center;place-items:center;overflow:hidden;background:transparent;cursor:pointer;margin:0;padding:0;background-color:rgba(0, 0, 0, 0.2);width:40px;height:40px;border-radius:40px;pointer-events:auto;transform:rotate(90deg)"><img
                       decoding="async" width="40" height="40"
                       src="https://framerusercontent.com/images/11KSGbIZoRSg4pjdnUoif6MKHI.svg"
-                      alt="Next Arrow"></button></div>
+                      alt="Next Arrow"></button>
+                </div>
                 <div
                   style="display:flex;place-content:center;place-items:center;overflow:hidden;position:absolute;pointer-events:auto;left:-40px;top:50%;transform:translateY(-50%);flex-direction:column;bottom:unset;border-radius:50px;background-color:rgba(0, 0, 0, 0.2);user-select:none">
                   <button aria-label="Scroll to page 1" type="button"
@@ -14000,7 +14074,8 @@
                     <div
                       style="border-radius:50%;background:white;cursor:pointer;border:none;place-content:center;place-items:center;padding:0;width:10px;height:10px;background-color:rgb(255, 255, 255);opacity:0.5">
                     </div>
-                  </button></div>
+                  </button>
+                </div>
               </fieldset>
             </section>
           </div>
@@ -21954,7 +22029,8 @@
                   <p class="framer-text"
                     style="--font-selector:Q1VTVE9NO1NhdG9zaGkgUmVndWxhcg==;--framer-font-family:&quot;Satoshi Regular&quot;, &quot;Satoshi Regular Placeholder&quot;, sans-serif;--framer-font-size:17px;--framer-letter-spacing:0.17px;--framer-text-alignment:left;--framer-text-color:var(--extracted-r6o4lv, rgb(255, 255, 255))">
                     <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                      data-cfemail="5e363b3232311e332b243b3d3331703d3133">[email&#160;protected]</a></p>
+                      data-cfemail="5e363b3232311e332b243b3d3331703d3133">[email&#160;protected]</a>
+                  </p>
                 </div>
                 <div class="framer-1d2nqkp" data-framer-name="Made by Code-Less.cc"
                   data-framer-component-type="RichTextContainer"
@@ -21962,7 +22038,8 @@
                   <p class="framer-text"
                     style="--font-selector:Q1VTVE9NO1NhdG9zaGkgTWVkaXVt;--framer-font-family:&quot;Satoshi Medium&quot;, &quot;Satoshi Medium Placeholder&quot;, sans-serif;--framer-font-size:13px;--framer-letter-spacing:0.13px;--framer-text-alignment:right;--framer-text-color:var(--extracted-r6o4lv, rgb(255, 255, 255))">
                     <a class="framer-text framer-styles-preset-1wicq5s" data-styles-preset="ro7OPezbn"
-                      href="./Contact">Contact us</a></p>
+                      href="./Contact">Contact us</a>
+                  </p>
                 </div>
                 <div class="framer-1mknnkz" data-framer-name="Made by Code-Less.cc"
                   data-framer-component-type="RichTextContainer"
@@ -21970,7 +22047,8 @@
                   <p class="framer-text"
                     style="--font-selector:Q1VTVE9NO1NhdG9zaGkgTWVkaXVt;--framer-font-family:&quot;Satoshi Medium&quot;, &quot;Satoshi Medium Placeholder&quot;, sans-serif;--framer-font-size:13px;--framer-letter-spacing:0.13px;--framer-text-alignment:right;--framer-text-color:var(--extracted-r6o4lv, rgb(255, 255, 255))">
                     <a class="framer-text framer-styles-preset-1wicq5s" data-styles-preset="ro7OPezbn"
-                      href="./Contact">Join Us</a></p>
+                      href="./Contact">Join Us</a>
+                  </p>
                 </div>
               </div>
             </div>
@@ -21981,7 +22059,8 @@
                 <p class="framer-text"
                   style="--font-selector:Q1VTVE9NO1NhdG9zaGkgTWVkaXVt;--framer-font-family:&quot;Satoshi Medium&quot;, &quot;Satoshi Medium Placeholder&quot;, sans-serif;--framer-font-size:13px;--framer-letter-spacing:0.13px;--framer-text-alignment:right;--framer-text-color:var(--extracted-r6o4lv, rgb(255, 255, 255))">
                   <a class="framer-text framer-styles-preset-1wicq5s" data-styles-preset="ro7OPezbn"
-                    href="./Terms-of-service">Terms of Service</a></p>
+                    href="./Terms-of-service">Terms of Service</a>
+                </p>
               </div>
               <div class="framer-1xp6kbz"></div>
             </div>
@@ -21992,7 +22071,8 @@
                 <p class="framer-text"
                   style="--font-selector:Q1VTVE9NO1NhdG9zaGkgTWVkaXVt;--framer-font-family:&quot;Satoshi Medium&quot;, &quot;Satoshi Medium Placeholder&quot;, sans-serif;--framer-font-size:13px;--framer-letter-spacing:0.13px;--framer-text-alignment:right;--framer-text-color:var(--extracted-r6o4lv, rgb(255, 255, 255))">
                   <a class="framer-text framer-styles-preset-1wicq5s" data-styles-preset="ro7OPezbn"
-                    href="./Privacy-Policy">Privacy Policy</a></p>
+                    href="./Privacy-Policy">Privacy Policy</a>
+                </p>
               </div>
               <div class="framer-gdalu1"></div>
             </div>
@@ -22051,7 +22131,8 @@
                   <p class="framer-text"
                     style="--font-selector:Q1VTVE9NO1NhdG9zaGkgUmVndWxhcg==;--framer-font-family:&quot;Satoshi Regular&quot;, &quot;Satoshi Regular Placeholder&quot;, sans-serif;--framer-font-size:17px;--framer-letter-spacing:0.17px;--framer-text-alignment:left;--framer-text-color:var(--extracted-r6o4lv, rgb(255, 255, 255))">
                     <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                      data-cfemail="553d3039393a1538202f3036383a7b363a38">[email&#160;protected]</a></p>
+                      data-cfemail="553d3039393a1538202f3036383a7b363a38">[email&#160;protected]</a>
+                  </p>
                 </div>
                 <div class="framer-1d2nqkp" data-framer-name="Made by Code-Less.cc"
                   data-framer-component-type="RichTextContainer"
@@ -22059,7 +22140,8 @@
                   <p class="framer-text"
                     style="--font-selector:Q1VTVE9NO1NhdG9zaGkgTWVkaXVt;--framer-font-family:&quot;Satoshi Medium&quot;, &quot;Satoshi Medium Placeholder&quot;, sans-serif;--framer-font-size:13px;--framer-letter-spacing:0.13px;--framer-text-alignment:right;--framer-text-color:var(--extracted-r6o4lv, rgb(255, 255, 255))">
                     <a class="framer-text framer-styles-preset-1wicq5s" data-styles-preset="ro7OPezbn"
-                      href="./Contact">Contact us</a></p>
+                      href="./Contact">Contact us</a>
+                  </p>
                 </div>
                 <div class="framer-1mknnkz" data-framer-name="Made by Code-Less.cc"
                   data-framer-component-type="RichTextContainer"
@@ -22067,7 +22149,8 @@
                   <p class="framer-text"
                     style="--font-selector:Q1VTVE9NO1NhdG9zaGkgTWVkaXVt;--framer-font-family:&quot;Satoshi Medium&quot;, &quot;Satoshi Medium Placeholder&quot;, sans-serif;--framer-font-size:13px;--framer-letter-spacing:0.13px;--framer-text-alignment:right;--framer-text-color:var(--extracted-r6o4lv, rgb(255, 255, 255))">
                     <a class="framer-text framer-styles-preset-1wicq5s" data-styles-preset="ro7OPezbn"
-                      href="./Contact">Join Us</a></p>
+                      href="./Contact">Join Us</a>
+                  </p>
                 </div>
               </div>
             </div>
@@ -22078,7 +22161,8 @@
                 <p class="framer-text"
                   style="--font-selector:Q1VTVE9NO1NhdG9zaGkgTWVkaXVt;--framer-font-family:&quot;Satoshi Medium&quot;, &quot;Satoshi Medium Placeholder&quot;, sans-serif;--framer-font-size:13px;--framer-letter-spacing:0.13px;--framer-text-alignment:right;--framer-text-color:var(--extracted-r6o4lv, rgb(255, 255, 255))">
                   <a class="framer-text framer-styles-preset-1wicq5s" data-styles-preset="ro7OPezbn"
-                    href="./Terms-of-service">Terms of Service</a></p>
+                    href="./Terms-of-service">Terms of Service</a>
+                </p>
               </div>
               <div class="framer-1xp6kbz"></div>
             </div>
@@ -22089,7 +22173,8 @@
                 <p class="framer-text"
                   style="--font-selector:Q1VTVE9NO1NhdG9zaGkgTWVkaXVt;--framer-font-family:&quot;Satoshi Medium&quot;, &quot;Satoshi Medium Placeholder&quot;, sans-serif;--framer-font-size:13px;--framer-letter-spacing:0.13px;--framer-text-alignment:right;--framer-text-color:var(--extracted-r6o4lv, rgb(255, 255, 255))">
                   <a class="framer-text framer-styles-preset-1wicq5s" data-styles-preset="ro7OPezbn"
-                    href="./Privacy-Policy">Privacy Policy</a></p>
+                    href="./Privacy-Policy">Privacy Policy</a>
+                </p>
               </div>
               <div class="framer-gdalu1"></div>
             </div>
