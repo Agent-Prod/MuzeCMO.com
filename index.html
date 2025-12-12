@@ -342,16 +342,36 @@
     // Initialize fbp immediately on script load
     (function () {
       try {
-        // Try to get existing fbp or generate immediately
-        cachedFbp = getCookie('_fbp') || localStorage.getItem('_fbp');
+        // Try to get existing fbp from cookie
+        cachedFbp = getCookie('_fbp');
+        
+        // Try localStorage if cookie not found
+        if (!cachedFbp) {
+          try {
+            var lsFbp = localStorage.getItem('_fbp');
+            if (lsFbp && lsFbp !== 'null' && lsFbp !== 'undefined') {
+              cachedFbp = lsFbp;
+            }
+          } catch (e) { }
+        }
+        
+        // Generate if still not found
         if (!cachedFbp) {
           cachedFbp = formatFbp();
-          setCookie('_fbp', cachedFbp, 90);
-          try { localStorage.setItem('_fbp', cachedFbp); } catch (e) { }
-          console.log('Pre-initialized _fbp:', cachedFbp);
+          console.log('Generated new _fbp on init:', cachedFbp);
         }
+        
+        // Always try to persist
+        setCookie('_fbp', cachedFbp, 90);
+        try { localStorage.setItem('_fbp', cachedFbp); } catch (e) { }
+        console.log('Initialized _fbp:', cachedFbp);
       } catch (e) {
         console.error('Error pre-initializing fbp:', e);
+        // Last resort - generate in memory only
+        if (!cachedFbp) {
+          cachedFbp = 'fb.1.' + Date.now() + '.' + Math.floor(Math.random() * 2147483647);
+          console.log('Emergency _fbp generation:', cachedFbp);
+        }
       }
     })();
 
