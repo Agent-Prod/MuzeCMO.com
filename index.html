@@ -148,7 +148,7 @@
 
     // Utility function to create fbc parameter from fbclid
     function makeFbc(fbclid) {
-      const timestamp = Math.floor(Date.now() / 1000);
+      const timestamp = Date.now();
       return 'fb.1.' + timestamp + '.' + fbclid;
     }
 
@@ -161,15 +161,34 @@
     }
 
     // Wait for Facebook Pixel to initialize and get fbp
-    function waitForFbp(timeout = 3000) {
+    function waitForFbp(timeout = 10000) {
       return new Promise((resolve) => {
         const startTime = Date.now();
         const checkFbp = () => {
-          const fbp = getCookie('_fbp');
-          if (fbp) {
-            console.log('Facebook Pixel cookie found:', fbp);
-            resolve(fbp);
-          } else if (Date.now() - startTime < timeout) {
+          // 1. Check cookie
+          const fbpCookie = getCookie('_fbp');
+          if (fbpCookie) {
+            console.log('Facebook Pixel cookie found:', fbpCookie);
+            resolve(fbpCookie);
+            return;
+          }
+
+          // 2. Check fbq state (in case cookie is blocked but pixel loaded)
+          try {
+            if (window.fbq && window.fbq.getState) {
+              const state = window.fbq.getState();
+              if (state && state.pixels && state.pixels.length > 0 && state.pixels[0].fbp) {
+                console.log('Retrieved fbp from fbq state:', state.pixels[0].fbp);
+                resolve(state.pixels[0].fbp);
+                return;
+              }
+            }
+          } catch (e) {
+            // Ignore errors from internal API
+          }
+
+          // 3. Continue polling or timeout
+          if (Date.now() - startTime < timeout) {
             setTimeout(checkFbp, 100);
           } else {
             console.warn('Facebook Pixel cookie not found after', timeout, 'ms');
