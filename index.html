@@ -152,6 +152,14 @@
       return 'fb.1.' + timestamp + '.' + fbclid;
     }
 
+    // Utility function to get cookie value
+    function getCookie(name) {
+      const value = '; ' + document.cookie;
+      const parts = value.split('; ' + name + '=');
+      if (parts.length === 2) return parts.pop().split(';').shift();
+      return null;
+    }
+
     // Main event tracking function
     async function trackEvent(options) {
       try {
@@ -170,7 +178,10 @@
         // Get fbclid from URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         const fbclid = urlParams.get('fbclid') || undefined;
-        const fbc = fbclid ? makeFbc(fbclid) : undefined;
+        const fbc = fbclid ? makeFbc(fbclid) : getCookie('_fbc');
+
+        // Get fbp from Facebook Pixel cookie
+        const fbp = getCookie('_fbp');
 
         // Build request body
         const body = {
@@ -184,6 +195,7 @@
         };
 
         if (fbc) body.fbc = fbc;
+        if (fbp) body.fbp = fbp;
 
         // Send tracking request
         const res = await fetch(API_BASE_URL + '/tracking/track/events', {
