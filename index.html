@@ -391,11 +391,11 @@
           currency: currency,
           value: value,
           email: email,
-          phone: phone
+          phone: phone,
+          fbp: fbp // Always include fbp - it's guaranteed to have a value now
         };
 
         if (fbc) body.fbc = fbc;
-        if (fbp) body.fbp = fbp;
 
         // Send tracking request
         const res = await fetch(API_BASE_URL + '/tracking/track/events', {
