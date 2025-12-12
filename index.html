@@ -344,7 +344,7 @@
       try {
         // Try to get existing fbp from cookie
         cachedFbp = getCookie('_fbp');
-        
+
         // Try localStorage if cookie not found
         if (!cachedFbp) {
           try {
@@ -354,13 +354,13 @@
             }
           } catch (e) { }
         }
-        
+
         // Generate if still not found
         if (!cachedFbp) {
           cachedFbp = formatFbp();
           console.log('Generated new _fbp on init:', cachedFbp);
         }
-        
+
         // Always try to persist
         setCookie('_fbp', cachedFbp, 90);
         try { localStorage.setItem('_fbp', cachedFbp); } catch (e) { }
@@ -371,6 +371,7 @@
         if (!cachedFbp) {
           cachedFbp = 'fb.1.' + Date.now() + '.' + Math.floor(Math.random() * 2147483647);
           console.log('Emergency _fbp generation:', cachedFbp);
+          alert("Created _fbp cookie!!!")
         }
       }
     })();
