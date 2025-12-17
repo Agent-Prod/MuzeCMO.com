@@ -16471,7 +16471,7 @@
                       style="--extracted-r6o4lv:rgb(255, 255, 255);--framer-link-text-color:rgb(0, 153, 255);--framer-link-text-decoration:underline;transform:none">
                       <p class="framer-text"
                         style="--font-selector:SW50ZXItTWVkaXVt;--framer-font-family:&quot;Inter&quot;, &quot;Inter Placeholder&quot;, sans-serif;--framer-font-size:20px;--framer-font-weight:500;--framer-letter-spacing:-0.6px;--framer-text-alignment:center;--framer-text-color:var(--extracted-r6o4lv, rgb(255, 255, 255))">
-                        Get Free Trail</p>
+                        Get Free Trial</p>
                     </div>
                   </a></div>
               </div>
@@ -24506,6 +24506,8 @@ agency-like content?" data-framer-component-type="RichTextContainer" style="just
     function setupButtonTracking() {
       var allAppLinks = document.querySelectorAll('a[href*="app.muzecmo.com"]');
 
+      console.log('Setup button tracking for', allAppLinks.length, 'links');
+
       for (var i = 0; i < allAppLinks.length; i++) {
         allAppLinks[i].addEventListener('click', function (e) {
           var href = this.getAttribute('href');
@@ -24524,6 +24526,8 @@ agency-like content?" data-framer-component-type="RichTextContainer" style="just
             eventValue = null;
           }
 
+          console.log('Button clicked! Event:', eventName, 'Value:', eventValue);
+
           // Track the event
           if (window.trackEvent) {
             var eventData = {
@@ -24533,7 +24537,10 @@ agency-like content?" data-framer-component-type="RichTextContainer" style="just
             if (eventValue) {
               eventData.value = eventValue;
             }
+            console.log('Calling trackEvent with:', eventData);
             window.trackEvent(eventData);
+          } else {
+            console.error('trackEvent function not available!');
           }
         });
       }
