@@ -24503,53 +24503,6 @@ agency-like content?" data-framer-component-type="RichTextContainer" style="just
     }
 
     // Add Facebook Pixel tracking to all buttons linking to the app
-    function setupButtonTracking() {
-      var allAppLinks = document.querySelectorAll('a[href*="app.muzecmo.com"]');
-
-      console.log('Setup button tracking for', allAppLinks.length, 'links');
-
-      for (var i = 0; i < allAppLinks.length; i++) {
-        allAppLinks[i].addEventListener('click', function (e) {
-          var href = this.getAttribute('href');
-          var eventName = 'Start Trial';
-          var eventValue = 99;
-
-          // Determine event name based on URL
-          if (href.indexOf('/signup') !== -1) {
-            eventName = 'Start Trial';
-            eventValue = 99;
-          } else if (href.indexOf('/signin') !== -1) {
-            eventName = 'Login';
-            eventValue = null;
-          } else {
-            eventName = 'Click to App';
-            eventValue = null;
-          }
-
-          console.log('Button clicked! Event:', eventName, 'Value:', eventValue);
-
-          // Track the event
-          if (window.trackEvent) {
-            var eventData = {
-              event_name: eventName,
-              event_source_url: window.location.href
-            };
-            if (eventValue) {
-              eventData.value = eventValue;
-            }
-            console.log('Calling trackEvent with:', eventData);
-            window.trackEvent(eventData);
-          } else {
-            console.error('trackEvent function not available!');
-          }
-        });
-      }
-    }
-
-    window.onload = function () {
-      updateLinks();
-      setupButtonTracking();
-    };
   </script>
 
 
