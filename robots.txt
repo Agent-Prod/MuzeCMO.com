@@ -1,0 +1,19 @@
+# robots.txt for MuzeCMO.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.muzecmo.com/sitemap.xml
+
+# Disallow internal/utility directories
+Disallow: /cdn-cgi/
+Disallow: /googleads/
+Disallow: /assets/others/
+
+# Disallow duplicate page files
+Disallow: /case-study/page.html
+Disallow: /pricing/page.html
+Disallow: /Privacy-Policy/page.html
+Disallow: /Terms-of-service/page.html
+Disallow: /cdn-cgi/l/email-protection/page.html
