@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact — Muze AI</title>
+    <meta name="description" content="Get in touch with the Muze AI team. We typically respond within 1 hour.">
+    <link rel="icon" href="https://framerusercontent.com/images/wQtvSE86geYyKN9BpUl5cpXsc.png">
+    <link rel="stylesheet" href="../style.css">
+    <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-5W39GW3K');</script>
+    <script>window.$crisp = []; window.CRISP_WEBSITE_ID = '66b410e9-66da-4dc1-b077-223820bdf0ff'; (function () { var d = document, s = d.createElement('script'); s.src = 'https://client.crisp.chat/l.js'; s.async = 1; d.getElementsByTagName('head')[0].appendChild(s); })();</script>
+    <style>
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 520px;
+            margin: 48px auto 0
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text)
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: var(--radius-md);
+            border: 1.5px solid var(--border);
+            background: var(--bg-white);
+            font-size: 15px;
+            font-family: var(--font-body);
+            color: var(--text);
+            transition: border-color var(--duration) var(--ease);
+            outline: none
+        }
+
+        .form-input:focus {
+            border-color: var(--text)
+        }
+
+        textarea.form-input {
+            min-height: 140px;
+            resize: vertical
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 32px;
+            background: #f0fdf4;
+            border-radius: var(--radius-lg);
+            border: 1px solid #bbf7d0
+        }
+
+        .form-success h3 {
+            color: #16a34a;
+            font-size: 20px;
+            margin-bottom: 8px
+        }
+    </style>
+</head>
+
+<body>
+    <header class="nav">
+        <div class="container">
+            <nav class="nav__inner">
+                <a href="../index.html" class="nav__logo">
+                    <img src="https://framerusercontent.com/images/wQtvSE86geYyKN9BpUl5cpXsc.png" alt="Muze AI"
+                        width="36" height="36">
+                    <strong>Muze AI</strong>
+                </a>
+                <div class="nav__links">
+                    <a href="../index.html#features" class="nav__link">Features</a>
+                    <a href="../pricing/index.html" class="nav__link">Pricing</a>
+                    <a href="../case-study/index.html" class="nav__link">Case Study</a>
+                </div>
+                <div class="nav__actions">
+                    <a href="https://app.muzecmo.com/signin" class="btn btn-outline btn-sm">Sign In</a>
+                    <a href="https://app.muzecmo.com/signup" class="btn btn-grad btn-sm" id="contact-nav-cta">Start
+                        Now</a>
+                    <button class="nav__hamburger" id="hamburger"
+                        aria-label="Menu"><span></span><span></span><span></span></button>
+                </div>
+            </nav>
+            <div class="nav__mobile" id="mobileNav">
+                <a href="../index.html" class="nav__link">Home</a>
+                <a href="../pricing/index.html" class="nav__link">Pricing</a>
+                <a href="https://app.muzecmo.com/signup" class="btn btn-grad btn-sm"
+                    style="margin-top:8px;width:100%">Start Now</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" style="padding-top:80px">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-header__eyebrow">Get In Touch</p>
+                <h1 class="section-header__title">We'd love to <span class="grad-text">hear from you</span></h1>
+                <p class="section-header__sub">Whether you have questions, need a demo, or want to discuss Enterprise —
+                    we typically respond within 1 hour.</p>
+            </div>
+            <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="form-field">
+                    <label class="form-label" for="contactName">Your Name</label>
+                    <input class="form-input" type="text" id="contactName" name="name" placeholder="Jane Smith"
+                        required>
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="contactEmail">Work Email</label>
+                    <input class="form-input" type="email" id="contactEmail" name="email" placeholder="jane@company.com"
+                        required>
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="contactCompany">Company</label>
+                    <input class="form-input" type="text" id="contactCompany" name="company" placeholder="Your Company">
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="contactMessage">Message</label>
+                    <textarea class="form-input" id="contactMessage" name="message"
+                        placeholder="Tell us about your ad goals and what you'd like to achieve with Muze AI..."
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-grad btn-lg" id="contactSubmit" style="width:100%">Send Message
+                    →</button>
+            </form>
+            <div class="form-success" id="formSuccess">
+                <h3>✓ Message sent!</h3>
+                <p style="color:var(--text-muted)">We'll get back to you within 1 hour during business hours.</p>
+            </div>
+            <div
+                style="display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-top:48px;padding-top:40px;border-top:1px solid var(--border)">
+                <div style="text-align:center">
+                    <div style="font-size:28px;margin-bottom:8px">💬</div>
+                    <div style="font-weight:600">Live Chat</div>
+                    <div style="font-size:14px;color:var(--text-muted);margin-top:4px">Click the chat bubble →</div>
+                </div>
+                <div style="text-align:center">
+                    <div style="font-size:28px;margin-bottom:8px">📧</div>
+                    <div style="font-weight:600">Email</div>
+                    <div style="font-size:14px;color:var(--text-muted);margin-top:4px">hello@muzecmo.com</div>
+                </div>
+                <div style="text-align:center">
+                    <div style="font-size:28px;margin-bottom:8px">⚡</div>
+                    <div style="font-weight:600">Response time</div>
+                    <div style="font-size:14px;color:var(--text-muted);margin-top:4px">Under 1 hour</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top:64px">
+        <div class="container">
+            <div class="footer__bottom" style="border-top:none;padding-top:0;margin-top:0">
+                <a href="../index.html" style="color:rgba(255,255,255,.7);font-weight:600">← Back to Home</a>
+                <span>© 2025 Muze AI. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('contactSubmit');
+            btn.textContent = 'Sending...'; btn.disabled = true;
+            setTimeout(() => {
+                document.getElementById('contactForm').style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+                if (window.trackEvent) trackEvent({ event_name: 'Contact Form Submit' });
+            }, 1200);
+        }
+    </script>
+</body>
+
+</html>

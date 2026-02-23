@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muze AI – AI that creates and runs ads</title>
+  <meta name="description"
+    content="Let AI manage and create your ads. Muze replaces your $10K/month agency for $999/month — 24/7 ad creation, optimization, and scaling on autopilot.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="https://framerusercontent.com/images/wQtvSE86geYyKN9BpUl5cpXsc.png" alt="Muze AI" width="36"
+          height="36">
+        <span>Muze AI</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary navigation">
+        <a href="pricing/index.html" class="nav__link">Pricing</a>
+        <a href="case-study/index.html" class="nav__link">Case-study</a>
+      </nav>
+      <div class="nav__ctas">
+        <a href="https://calendly.com/muzecmo/30min" class="btn btn-outline" target="_blank" rel="noopener">Talk to
+          Sales</a>
+        <a href="https://app.muzecmo.com/signup" class="btn btn-dark" target="_blank" rel="noopener">Start Now</a>
+      </div>
+      <button class="nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="nav-mobile" aria-hidden="true">
+      <a href="pricing/index.html" class="nav__link">Pricing</a>
+      <a href="case-study/index.html" class="nav__link">Case-study</a>
+      <a href="https://calendly.com/muzecmo/30min" class="btn btn-outline" target="_blank" rel="noopener">Talk to
+        Sales</a>
+      <a href="https://app.muzecmo.com/signup" class="btn btn-dark" target="_blank" rel="noopener">Start Now</a>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero__inner">
+
+      <!-- Badge -->
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        AI for Performance Marketing
+      </div>
+
+      <!-- Heading -->
+      <h1 class="hero__h1">
+        <span class="hero__h1-grad">Let AI Manage &amp; Create Your Ads.</span><br>
+        <em class="hero__h1-italic">To make ads Work.</em>
+      </h1>
+
+      <!-- Platform badges — Meta + Google -->
+      <div class="hero__platform-badges">
+        <div class="platform-pill">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1280px-Meta_Platforms_Inc._logo.svg.png"
+            alt="Meta">
+        </div>
+        <div class="platform-pill">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png"
+            alt="Google">
+        </div>
+      </div>
+
+      <!-- Pipeline diagram -->
+      <div class="pipeline-wrap" aria-hidden="true">
+        <img src="https://framerusercontent.com/images/fTptSVb35z2upLtn1Kx8j65zvI0.png"
+          alt="Plan, Create, Launch, Monitor, Optimize">
+      </div>
+
+      <!-- CTAs -->
+      <div class="hero__ctas">
+        <a href="https://app.muzecmo.com/login" class="btn btn-dark btn-lg" target="_blank" rel="noopener">Login →</a>
+        <a href="https://app.muzecmo.com/signup" class="btn btn-grad btn-lg" target="_blank" rel="noopener">Start Now
+          →</a>
+      </div>
+
+      <!-- Trust row -->
+      <div class="hero__trust">
+        <div class="trust-item">
+          <img src="https://framerusercontent.com/images/AXnISTEkFNLinFO4qFrg759XgM.png" alt="Shopify"
+            class="trust-icon">
+          <div class="trust-text">
+            <div class="trust-label">Backed and built by</div>
+            <div class="trust-val">Head of Marketing</div>
+          </div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <img src="https://framerusercontent.com/images/Mw9DzA7l4elKa7BnfuTyYL3J8.webp" alt="Leading AI model"
+            class="trust-icon">
+          <div class="trust-text">
+            <div class="trust-label">Powered by</div>
+            <div class="trust-val">Leading AI model</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Hunt + Rating -->
+      <div class="hero__social-proof">
+        <a href="https://www.producthunt.com" class="ph-badge" target="_blank" rel="noopener">
+          <span class="ph-badge__logo">P</span>
+          <div class="ph-badge__text">
+            <div class="ph-badge__name">Product hunt of the day</div>
+          </div>
+          <div class="ph-badge__votes">▲ 209</div>
+        </a>
+        <div class="star-rating">
+          <div class="star-rating__avatars">
+            <img src="https://i.pravatar.cc/28?img=11" alt="">
+            <img src="https://i.pravatar.cc/28?img=22" alt="">
+            <img src="https://i.pravatar.cc/28?img=33" alt="">
+            <img src="https://i.pravatar.cc/28?img=44" alt="">
+          </div>
+          <span class="star-rating__text">4.9/5 from customers</span>
+          <span>⭐</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+     SECTION CAPTION
+═══════════════════════════════════════════ -->
+  <div class="feat-caption">
+    <h2>Everything you need to run <em>highly profitable ads.</em></h2>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+     FEATURE SCROLL STRIP
+═══════════════════════════════════════════ -->
+  <div class="feat-strip">
+    <div class="feat-track" id="featTrack">
+
+      <!-- 1. Creative Generation (video) -->
+      <div class="feat-item">
+        <div class="feat-item__label">Creative Generation</div>
+        <video autoplay loop muted playsinline>
+          <source src="https://framerusercontent.com/assets/Uy8rHn1hQcNkEbTmLXOxeO47lQ.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- 2. Budget Reallocation (video) -->
+      <div class="feat-item">
+        <div class="feat-item__label">Budget Reallocation</div>
+        <video autoplay loop muted playsinline>
+          <source src="https://framerusercontent.com/assets/1BizZl2toPJdGwBuJg63j8FsKxk.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- 3. Campaign Management (video) -->
+      <div class="feat-item">
+        <div class="feat-item__label">Campaign Management</div>
+        <video autoplay loop muted playsinline>
+          <source src="https://framerusercontent.com/assets/CwNUSb2OM7HFUHZCkKpTq407140.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- 4. Creative Intelligence (image — full, no crop) -->
+      <div class="feat-item">
+        <div class="feat-item__label">Creative Intelligence</div>
+        <img src="https://framerusercontent.com/images/bquBLhR22BEgDQh6GKfVqUps7Y.png" alt="Creative Intelligence">
+      </div>
+
+      <!-- 5. Auto Optimisation (image — full, no crop) -->
+      <div class="feat-item">
+        <div class="feat-item__label">Auto Optimisation</div>
+        <img src="https://framerusercontent.com/images/r2Zq42WeqtUWdBytVVilOva3nQ.png" alt="Auto Optimisation">
+      </div>
+
+      <!-- 6. Competitor Ad Cloning (image — full, no crop) -->
+      <div class="feat-item">
+        <div class="feat-item__label">Competitor Ad Cloning</div>
+        <img src="https://framerusercontent.com/images/SexOGhHe8u4n6AAGPknA98oCZE.png" alt="Competitor Ad Cloning">
+      </div>
+
+      <!-- 7. Runs Ads 24/7 (image — light crop only the small top bar) -->
+      <div class="feat-item feat-item--crop-sm">
+        <div class="feat-item__label">Runs Ads 24/7</div>
+        <div class="feat-item__img-wrap">
+          <img src="https://framerusercontent.com/images/s3ZWtWwbzr2vfuK1xVgn21sPFo.png" alt="Runs Ads 24/7">
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+     VIDEO SECTION
+═══════════════════════════════════════════ -->
+  <section class="video-section">
+    <div class="video-wrap">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/h2qorPWf9Qg?si=S9niuIKTNjTAz0lm"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+     COPY / PITCH SECTION
+═══════════════════════════════════════════ -->
+  <section class="pitch-section">
+    <div class="pitch-inner">
+      <h2 class="pitch__title">The All-in-One AI Ads Platform</h2>
+      <div class="pitch__body">
+        <p>Your agency charges <strong>$10K–15K monthly</strong>. Muze does the same work for <strong
+            class="pitch__price">$999</strong>.</p>
+        <p>Your agency takes 2 weeks to deliver new creatives. Muze generates <strong>10 ad variations in 90
+            seconds</strong>. Your agency optimizes campaigns during business hours. Muze works <strong>24/7</strong> —
+          pausing losers, scaling winners, and catching creative fatigue before your ROAS tanks.</p>
+        <p class="pitch__closer">Muze isn't cheaper because it does less. <em>It's cheaper because it doesn't sleep,
+            forget, or quit.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+     COMPARISON TABLE
+═══════════════════════════════════════════ -->
+  <section class="compare-section">
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="compare-table__feat-col"></th>
+            <th>
+              <img
+                src="https://framerusercontent.com/images/wQtvSE86geYyKN9BpUl5cpXsc.png?scale-down-to=512&width=921&height=921"
+                alt="Muze AI" class="compare-logo">
+            </th>
+            <th class="compare-table__neg">Agency</th>
+            <th class="compare-table__neg">In House Team</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="compare-table__price-row">
+            <td>Cost to you /month</td>
+            <td class="compare-table__muze-price">$999</td>
+            <td class="compare-table__agency-price">$10,000</td>
+            <td class="compare-table__inhouse-price">$20,000</td>
+          </tr>
+          <tr>
+            <td>End-to-end performance marketing</td>
+            <td><span class="check">✓</span></td>
+            <td class="compare-table__dim">$4K–6K</td>
+            <td class="compare-table__dim">$4K–6K</td>
+          </tr>
+          <tr>
+            <td>Weekly performance reporting</td>
+            <td><span class="check">✓</span></td>
+            <td class="compare-table__dim">$1K–2K</td>
+            <td class="compare-table__dim">$1K–2K</td>
+          </tr>
+          <tr>
+            <td>Unlimited ad creative</td>
+            <td><span class="check">✓</span></td>
+            <td class="compare-table__dim">$3K–5K</td>
+            <td class="compare-table__dim">$3K–5K</td>
+          </tr>
+          <tr>
+            <td>Automatic creative testing &amp; scaling</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+          </tr>
+          <tr>
+            <td>Creative fatigue detection</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Works while you sleep</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+          </tr>
+          <tr>
+            <td>Data-driven decisions at scale</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✕</span></td>
+          </tr>
+          <tr>
+            <td>Speed of Execution</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+          </tr>
+          <tr>
+            <td>No hiring. No onboarding.</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+     HOW IT WORKS — STICKY STACKING STEPS
+═══════════════════════════════════════════ -->
+  <section class="steps-section">
+    <div class="steps-header">
+      <p class="steps-eyebrow">How it works</p>
+      <h2 class="steps-title">From ad account to profitable campaigns — <em>fully automated.</em></h2>
+    </div>
+
+    <div class="steps-stack">
+
+      <!-- Step 1 -->
+      <div class="step-card step-card--1">
+        <div class="step-card__inner">
+          <div class="step-card__left">
+            <div class="step-pill">
+              <span class="step-pill__num">01</span>
+              <span class="step-pill__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg></span>
+            </div>
+            <h3 class="step-card__title">Analyzing your<br>ad account &amp; business data</h3>
+            <p class="step-card__desc">Muze's AI connects to your Meta &amp; Google ad accounts, reads your ad history,
+              benchmarks your ROAS, and builds a personalized growth strategy tailored to your business — in seconds.
+            </p>
+          </div>
+          <div class="step-card__right">
+            <img src="https://adscale.com/wp-content/uploads/2025/10/Icon-Container.svg" alt="Analyzing data"
+              class="step-card__img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-card step-card--2">
+        <div class="step-card__inner">
+          <div class="step-card__left">
+            <div class="step-pill">
+              <span class="step-pill__num">02</span>
+              <span class="step-pill__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg></span>
+            </div>
+            <h3 class="step-card__title">Identifying your<br>best-performing audiences</h3>
+            <p class="step-card__desc">Muze profiles your top converters through deep analysis of purchase patterns and
+              behaviour signals. It builds lookalike and retargeting segments automatically, making sure your ads reach
+              the right people at the right moment.</p>
+          </div>
+          <div class="step-card__right">
+            <img src="https://adscale.com/wp-content/uploads/2025/09/Group-1261157143.png" alt="Audience building"
+              class="step-card__img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-card step-card--3">
+        <div class="step-card__inner">
+          <div class="step-card__left">
+            <div class="step-pill">
+              <span class="step-pill__num">03</span>
+              <span class="step-pill__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                  <path d="M12 18V6" />
+                </svg></span>
+            </div>
+            <h3 class="step-card__title">Setting your budget<br>&amp; ROAS goals</h3>
+            <p class="step-card__desc">Tell Muze your monthly budget and target ROAS. Our AI allocates spend dynamically
+              across Meta and Google, shifting budget to wherever it performs best — in real time, not end of month.</p>
+          </div>
+          <div class="step-card__right">
+            <img src="https://adscale.com/wp-content/uploads/2025/09/Group-1261157106.png" alt="Budget and goals"
+              class="step-card__img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step-card step-card--4">
+        <div class="step-card__inner">
+          <div class="step-card__left">
+            <div class="step-pill">
+              <span class="step-pill__num">04</span>
+              <span class="step-pill__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1-1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                </svg></span>
+            </div>
+            <h3 class="step-card__title">Creating high-performing<br>AI ads on Meta &amp; Google</h3>
+            <p class="step-card__desc">Muze builds full-funnel ad campaigns with the right audiences, keywords, copy,
+              and creatives — all generated by AI. It launches 10 ad variations in 90 seconds. No briefs. No revisions.
+              No waiting.</p>
+          </div>
+          <div class="step-card__right">
+            <img src="https://adscale.com/wp-content/uploads/2025/11/Card-Container.png" alt="AI Ads creation"
+              class="step-card__img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="step-card step-card--5">
+        <div class="step-card__inner">
+          <div class="step-card__left">
+            <div class="step-pill">
+              <span class="step-pill__num">05</span>
+              <span class="step-pill__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg></span>
+            </div>
+            <h3 class="step-card__title">Optimizing campaigns<br>24/7 for maximum ROAS</h3>
+            <p class="step-card__desc">Muze never sleeps. It detects creative fatigue 14 days before CTR drops, pauses
+              underperformers automatically, scales winning ads by 20%, and reallocates budget — all while you focus on
+              your business.</p>
+          </div>
+          <div class="step-card__right">
+            <img src="https://adscale.com/wp-content/uploads/2025/11/Step5.svg" alt="Optimizing campaigns"
+              class="step-card__img">
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /steps-stack -->
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+     WALL OF LOVE
+═══════════════════════════════════════════ -->
+  <section class="wall-of-love">
+    <div class="wol-header">
+      <h2 class="wol-title">Wall of <span>Love</span> ❤️</h2>
+    </div>
+
+    <div class="wol-grid">
+      <!-- Column 1 -->
+      <div class="wol-col">
+        <div class="wol-img-wrap" style="aspect-ratio: 4/5;">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=600"
+            alt="Speaking Event" />
+        </div>
+
+        <div class="wol-card">
+          <div class="wol-card__header">
+            <div class="wol-author">
+              <img src="https://i.pravatar.cc/150?u=roger" class="wol-avatar" alt="Roger" />
+              <div class="wol-author-info">
+                <span class="wol-author-name">Roger Dunn</span>
+                <span class="wol-author-title">Global Performance Lead - Rivert</span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#f97316">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+          </div>
+          <p class="wol-card__text">We were drowning with 7 people. Got back so many hours each week from reporting.
+            Finally have bandwidth to focus on actual strategy.</p>
+          <div class="wol-stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="wol-card">
+          <div class="wol-card__header">
+            <div class="wol-author">
+              <img src="https://i.pravatar.cc/150?u=gabriela" class="wol-avatar" alt="Gabriela" />
+              <div class="wol-author-info">
+                <span class="wol-author-name">Gabriela K. <svg style="display:inline;vertical-align:middle;" width="14"
+                    height="14" viewBox="0 0 24 24" fill="#3b82f6">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg></span>
+                <span class="wol-author-title">@gabri_isleia · 3h</span>
+              </div>
+            </div>
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="currentColor">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 24.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.004 3.985H5.078z">
+              </path>
+            </svg>
+          </div>
+          <p class="wol-card__text">Our agency does audits for potential clients 5x faster now. Used to take days, now
+            it's like an hour. Way easier to win new business</p>
+          <div class="wol-tweet-actions">
+            <div class="wol-tweet-action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg> 2</div>
+            <div class="wol-tweet-action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M17 1l4 4-4 4"></path>
+                <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                <path d="M7 23l-4-4 4-4"></path>
+                <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+              </svg></div>
+            <div class="wol-tweet-action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg> 2</div>
+            <div class="wol-tweet-action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M12 20v-6M6 20V10M18 20V4" />
+              </svg> 102</div>
+            <div class="wol-tweet-action"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13" />
+              </svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="wol-col">
+        <div class="wol-card wol-card--dark">
+          <h4>"Muze's AI-driven ads outperform human optimization by a huge margin."</h4>
+          <p>Mathilde Biggs, CEO MotifDigital Agency</p>
+        </div>
+
+        <div class="wol-card wol-stat-card">
+          <div class="wol-stat-col">
+            <span class="wol-stat-val">+63%</span>
+            <span class="wol-stat-lbl">better ROAS after switching to AI agents</span>
+          </div>
+          <div class="wol-stat-col">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Speedy_logo.svg" alt="Speedy"
+              class="wol-brand-logo" style="filter: grayscale(1); opacity: 0.8;" />
+            <span class="wol-stat-lbl">Got the whole team up and running in a day. Super easy to pick up</span>
+          </div>
+        </div>
+
+        <div class="wol-card">
+          <div class="wol-card__header">
+            <div class="wol-author">
+              <img src="https://i.pravatar.cc/150?u=daniel" class="wol-avatar" alt="Daniel" />
+              <div class="wol-author-info">
+                <span class="wol-author-name">Daniel Amezquita</span>
+                <span class="wol-author-title">Global Ads Strategy - Glava</span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#0077b5">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+          </div>
+          <p class="wol-card__text">Broke down performance by asset—thumbnails, headlines, everything. Suggested swaps
+            based on real data. Our CTR basically doubled.</p>
+          <div class="wol-tweet-actions" style="justify-content: flex-start; gap: 24px;">
+            <div class="wol-tweet-action"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg> 245</div>
+            <div class="wol-tweet-action"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg> 42</div>
+          </div>
+        </div>
+
+        <div class="wol-img-wrap" style="aspect-ratio: 16/9;">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600"
+            alt="Team meeting" />
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="wol-col">
+        <div class="wol-img-wrap" style="aspect-ratio: 4/5;">
+          <img src="https://images.unsplash.com/photo-1556761175-5973e8e2c6ea?auto=format&fit=crop&q=80&w=600"
+            alt="Google Partner Summit" />
+        </div>
+
+        <div class="wol-card">
+          <div class="wol-card__header">
+            <div class="wol-author">
+              <img src="https://i.pravatar.cc/150?u=danielr" class="wol-avatar" alt="Daniel" />
+              <div class="wol-author-info">
+                <span class="wol-author-name">Daniel Roser</span>
+                <span class="wol-author-title">GB • 7 reviews</span>
+              </div>
+            </div>
+            <svg viewBox="0 0 24 24" fill="#00b67a" width="100" height="24" style="height: 24px; width: auto;">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+          </div>
+          <p class="wol-card__text">Found wasted spend in search terms we'd never have caught manually. Cut those,
+            reallocated budget. ROAS up 45%</p>
+          <div class="wol-stars">
+            <div class="wol-trustpilot-stars"><svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+              </svg></div>
+            <div class="wol-trustpilot-stars"><svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+              </svg></div>
+            <div class="wol-trustpilot-stars"><svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+              </svg></div>
+            <div class="wol-trustpilot-stars"><svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+              </svg></div>
+            <div class="wol-trustpilot-stars"><svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+              </svg></div>
+          </div>
+        </div>
+
+        <div class="wol-card">
+          <div class="wol-card__header">
+            <div class="wol-author">
+              <img src="https://i.pravatar.cc/150?u=elena" class="wol-avatar" alt="Elena" />
+              <div class="wol-author-info">
+                <span class="wol-author-name">Elena M.</span>
+                <span class="wol-author-title">CMO @ TechFlow</span>
+              </div>
+            </div>
+            <div style="font-weight:800;font-size:16px;">Clutch <span style="color:#ef4444;">⭐⭐⭐⭐⭐</span></div>
+          </div>
+          <p class="wol-card__text">Caught that our conversion tracking was double-counting. We had no idea for like 3
+            months. Fixed it and everything made way more sense</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+     FEATURES / USE CASES
+═══════════════════════════════════════════ -->
+  <section class="features-section">
+    <div class="features-grid">
+      <!-- Why Agencies -->
+      <div class="feature-block feature-block--agencies">
+        <h3 class="feature-title">Why Agencies</h3>
+        <ul class="feature-list">
+          <li>
+            <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            Manage all clients from one dashboard
+          </li>
+          <li>
+            <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            White-label reporting for client presentations
+          </li>
+          <li>
+            <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            $999/month per client = 5x cheaper than hiring
+          </li>
+        </ul>
+      </div>
+
+      <!-- Shopify Brands -->
+      <div class="feature-block feature-block--shopify">
+        <h3 class="feature-title">Built for Shopify Brands</h3>
+        <ul class="feature-list">
+          <li>
+            <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            Sync your entire product catalog automatically
+          </li>
+          <li>
+            <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            Generate ads for each SKU with one click
+          </li>
+          <li>
+            <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            Track ROAS down to product-level, not just campaign-level
+          </li>
+          <li>
+            <svg class="feature-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            Auto-update ads when products go on sale or stock changes
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════ -->
+  <section class="faq-section">
+    <div class="faq-container">
+      <h2 class="faq-header">FAQ</h2>
+      <div class="faq-list">
+
+        <details class="faq-item" open>
+          <summary class="faq-question">What is Muze AI?<div class="faq-icon"></div>
+          </summary>
+          <div class="faq-answer">
+            <p>Muze AI is an all-in-one AI-powered performance marketing platform that runs and optimizes Meta Ads and
+              Google Ads end-to-end. It replaces agencies, tools, and manual workflows with an autonomous AI ads team.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">How is Muze AI different from other AI advertising tools?<div class="faq-icon">
+            </div>
+          </summary>
+          <div class="faq-answer">
+            <p>Most AI tools only generate ad content. Muze AI manages the entire performance marketing workflow,
+              including strategy, creatives, audience targeting, budget optimization, and continuous performance
+              improvement.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Do I need performance marketing or technical knowledge to use Muze AI?<div
+              class="faq-icon"></div>
+          </summary>
+          <div class="faq-answer">
+            <p>No. Muze AI is designed for founders and teams without marketing expertise. The platform handles
+              everything automatically, without the need for agencies or in-house teams.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Which ad platforms does Muze AI support?<div class="faq-icon"></div>
+          </summary>
+          <div class="faq-answer">
+            <p>Muze AI supports Meta Ads (Facebook and Instagram) and Google Ads, with full performance management
+              across both platforms.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">What kind of ads can Muze AI create?<div class="faq-icon"></div>
+          </summary>
+          <div class="faq-answer">
+            <p>Muze AI creates image ads, video ads, short-form videos, and B-roll creatives optimized for Meta Ads and
+              Google Ads. The AI continuously tests and scales the best-performing creative formats automatically.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Can Muze AI manage and optimize existing ad accounts?<div class="faq-icon">
+            </div>
+          </summary>
+          <div class="faq-answer">
+            <p>Yes. Muze AI audits existing Meta and Google Ads accounts, identifies what to pause, fix, and scale, and
+              continuously optimizes campaigns for better results.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Does Muze AI replace an ad agency or in-house team?<div class="faq-icon"></div>
+          </summary>
+          <div class="faq-answer">
+            <p>Yes. Muze AI is built to replace performance marketing agencies and in-house ad teams by running ads
+              end-to-end at a significantly lower cost.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Do I need a website to use Muze AI?<div class="faq-icon"></div>
+          </summary>
+          <div class="faq-answer">
+            <p>A website helps Muze AI learn your brand and conversion signals faster. In some cases, limited setup may
+              still be possible without a website.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Is Muze AI better than using ChatGPT for ads?<div class="faq-icon"></div>
+          </summary>
+          <div class="faq-answer">
+            <p>ChatGPT helps with ideas. Muze AI runs real performance marketing, directly managing Meta and Google Ads
+              with live data, optimization, and scaling.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+  <footer class="main-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="https://framerusercontent.com/images/wQtvSE86geYyKN9BpUl5cpXsc.png" alt="Muze AI Logo"
+            class="footer-logo" />
+          <p class="footer-made-in">Made with 💙 in San Francisco</p>
+        </div>
+        <div class="footer-links">
+          <a href="privacy/index.html">Privacy Policy</a>
+          <a href="terms/index.html">Terms of Service</a>
+        </div>
+      </div>
+
+      <div class="footer-middle">
+        <div class="footer-contact">
+          <p>hello@muzecmo.com</p>
+          <a href="https://app.muzecmo.com/signup" class="btn btn-primary" style="margin-top: 16px;">Start Now ➔</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright © 2025 AgentProd Inc.<br>All Rights Reserved</p>
+      </div>
+    </div>
+
+    <!-- Floating Chat Icon -->
+    <a href="#" class="floating-chat" aria-label="Chat">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </svg>
+    </a>
+  </footer>
+
+</body>
+
+</html>

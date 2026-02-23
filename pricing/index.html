@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Pricing — Muze AI</title>
+    <meta name="description"
+        content="Start free. Scale with AI. Muze AI pricing plans for brands and agencies running paid performance marketing.">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        .pricing-hero {
+            text-align: center;
+            padding: 80px 24px 48px;
+        }
+
+        .pill-badge {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            /* blueish border */
+            border-radius: 999px;
+            padding: 6px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 24px;
+            background: linear-gradient(120deg, rgba(59, 130, 246, 0.05), rgba(249, 115, 22, 0.05));
+        }
+
+        .pricing-hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            color: #09090b;
+        }
+
+        .pricing-hero h1 span.italic-grad {
+            font-style: italic;
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 400;
+        }
+
+        .pricing-hero h1 span.normal-italic {
+            font-style: italic;
+            font-family: Georgia, serif;
+            font-weight: 400;
+            color: #52525b;
+        }
+
+        .pricing-hero p {
+            font-size: clamp(20px, 4vw, 24px);
+            font-style: italic;
+            font-family: Georgia, serif;
+            color: #52525b;
+            margin-top: 12px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 48px auto 80px;
+            padding: 0 24px;
+        }
+
+        .plan-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 24px;
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+            position: relative;
+        }
+
+        .plan-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .plan-title-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .plan-mascot {
+            width: 100px;
+            height: auto;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+
+        .plan-divider {
+            border: 0;
+            height: 1px;
+            border-top: 1px dashed rgba(0, 0, 0, 0.1);
+            margin: 0 0 24px 0;
+        }
+
+        .plan-tier {
+            font-size: 24px;
+            font-weight: 400;
+            font-family: Georgia, serif;
+            color: #09090b;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .plan-price-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .plan-price {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: #09090b;
+        }
+
+        .plan-period {
+            font-size: 14px;
+            font-weight: 600;
+            color: #71717a;
+        }
+
+        .plan-sub {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-top: -12px;
+            margin-bottom: 8px;
+        }
+
+        .plan-desc {
+            font-size: 15px;
+            color: #52525b;
+            line-height: 1.5;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
+
+        .inc-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #09090b;
+            margin-bottom: 12px;
+        }
+
+        .miss-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #f43f5e;
+            margin-top: 16px;
+            margin-bottom: 12px;
+        }
+
+        .pricing-feat-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .pricing-feat-item {
+            font-size: 14px;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            color: #3f3f46;
+            line-height: 1.4;
+        }
+
+        .pricing-feat-item::before {
+            content: '•';
+            color: #3f3f46;
+        }
+
+        .plan-cta {
+            margin-top: auto;
+            width: 100%;
+            padding-top: 24px;
+        }
+
+        .btn-grad {
+            background: linear-gradient(135deg, #a855f7, #f43f5e);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3);
+            transition: opacity 0.2s;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-grad:hover {
+            opacity: 0.9;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #09090b;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            width: 100%;
+            padding: 14px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-outline:hover {
+            border-color: #09090b;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1000px;
+            margin: 64px auto;
+            padding: 0 24px;
+        }
+
+        .value-prop h3 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #09090b;
+        }
+
+        .value-prop p {
+            font-size: 16px;
+            color: #52525b;
+            line-height: 1.5;
+        }
+
+        .why-pricing {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 800px;
+            margin: 80px auto;
+            text-align: center;
+        }
+
+        .why-pricing h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            color: #09090b;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .why-item {
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #3f3f46;
+        }
+
+        .why-item svg {
+            color: #a855f7;
+            flex-shrink: 0;
+        }
+
+        .why-note {
+            font-size: 14px;
+            color: #71717a;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+            }
+
+            .value-props {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <header class="nav">
+        <div class="container">
+            <div class="nav__inner">
+                <a href="../index.html" class="nav__logo">
+                    <img src="https://framerusercontent.com/images/wQtvSE86geYyKN9BpUl5cpXsc.png" alt="Muze AI Logo"
+                        style="height:32px;">
+                    Muze AI
+                </a>
+                <nav class="nav__links">
+                    <a href="index.html" class="nav__link">Pricing</a>
+                    <a href="../case-study/index.html" class="nav__link">Case-study</a>
+                </nav>
+                <div class="nav__actions">
+                    <a href="https://calendly.com/muzecmo/30min" class="nav__link" style="margin-right:16px;"
+                        target="_blank">Talk to Sales</a>
+                    <a href="https://app.muzecmo.com/signup" class="btn btn-dark" target="_blank" rel="noopener">Start
+                        Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="pricing-hero">
+        <div class="container">
+            <div class="pill-badge">AI for Performance Marketing</div>
+            <h1>Pricing Plans</h1>
+            <h1><span class="italic-grad">Start free.</span> <span class="normal-italic">Scale with AI.</span></h1>
+            <p>Built to support brands and agencies.</p>
+        </div>
+    </section>
+
+    <!-- PRICING PLANS -->
+    <section class="section" style="padding-top:0;">
+        <div class="pricing-grid">
+
+            <!-- Plan 1 -->
+            <div class="plan-card">
+                <div class="plan-header-top">
+                    <div class="plan-title-box">
+                        <div class="plan-tier">AI Ad Creative<br>Studio</div>
+                        <div class="plan-price-wrap">
+                            <div class="plan-price">$49</div>
+                            <div class="plan-period" style="margin-top:auto; margin-bottom: 8px;">per month</div>
+                        </div>
+                    </div>
+                    <!-- Mascot Placeholder -->
+                    <img src="https://muzecmo.com/images/mascot.png" alt="" class="plan-mascot">
+                </div>
+
+                <hr class="plan-divider">
+
+                <div class="plan-desc" style="border-bottom:none; margin-bottom:12px; padding-bottom:0;">Generate,
+                    launch, and test ads. Perfect if you want AI-powered creatives without
+                    handing over the wheel.</div>
+
+                <div class="inc-title">What's Included :</div>
+                <div class="pricing-feat-list">
+                    <div class="pricing-feat-item">10 AI video ads per month</div>
+                    <div class="pricing-feat-item">20 AI image ads per month</div>
+                    <div class="pricing-feat-item">Connect Meta &amp; Google account</div>
+                    <div class="pricing-feat-item">One-click campaign launch</div>
+                    <div class="pricing-feat-item">Instant account audit on connect</div>
+                    <div class="pricing-feat-item">Competitor ad cloning</div>
+                </div>
+
+                <div class="miss-title">What you'll miss out on !</div>
+                <div class="pricing-feat-list" style="margin-bottom:0;">
+                    <div class="pricing-feat-item">24/7 autonomous optimization</div>
+                    <div class="pricing-feat-item">Creative Cortex™ analysis</div>
+                    <div class="pricing-feat-item">Auto-pause &amp; auto-scale</div>
+                </div>
+
+                <div class="plan-cta">
+                    <a href="#" class="btn-grad">Get Started ➔</a>
+                </div>
+            </div>
+
+            <!-- Plan 2 -->
+            <div class="plan-card">
+                <div class="plan-header-top">
+                    <div class="plan-title-box">
+                        <div class="plan-tier">AI Performance<br>Marketer</div>
+                        <div class="plan-price-wrap">
+                            <div class="plan-price">$399</div>
+                            <div class="plan-period" style="margin-top:auto; margin-bottom: 8px;">per month</div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="plan-divider">
+
+                <div class="plan-desc" style="border-bottom:none; margin-bottom:12px; padding-bottom:0;">Full autonomous
+                    optimization across Meta &amp; Google. Muze runs your campaigns
+                    like a senior performance marketer — 24/7.</div>
+
+                <div class="inc-title">What's Included :</div>
+                <div class="pricing-feat-list" style="margin-bottom:0;">
+                    <div class="pricing-feat-item" style="font-weight:700;">Everything in starter, plus</div>
+                    <div class="pricing-feat-item">400 credits/mo (~40 videos, 200 images)</div>
+                    <div class="pricing-feat-item">24/7 autonomous optimization</div>
+                    <div class="pricing-feat-item">Creative Cortex™ frame-by-frame ad analysis</div>
+                    <div class="pricing-feat-item">Auto-pause underperformers, auto-scale winners</div>
+                    <div class="pricing-feat-item">Creative fatigue detection (3–5 days early)</div>
+                    <div class="pricing-feat-item">Shopify integration catalog &amp; shopping ads</div>
+                    <div class="pricing-feat-item">Performance Genome™ Unified Meta + Google intelligence</div>
+                    <div class="pricing-feat-item">AI CMO Chat strategic guidance on demand</div>
+                    <div class="pricing-feat-item">Improved creatives auto-generated from analysis</div>
+                    <div class="pricing-feat-item">Expert ad specialist support</div>
+                </div>
+
+                <div class="plan-cta">
+                    <a href="#" class="btn-grad">Get Started ➔</a>
+                </div>
+            </div>
+
+            <!-- Plan 3 -->
+            <div class="plan-card">
+                <div class="plan-header-top">
+                    <div class="plan-title-box">
+                        <div class="plan-tier">AI Growth<br>Operator</div>
+                        <div class="plan-price-wrap">
+                            <div class="plan-price">$999+</div>
+                        </div>
+                        <div class="plan-sub">1% of monthly ad spend<br>per month</div>
+                    </div>
+                </div>
+
+                <hr class="plan-divider">
+
+                <div class="plan-desc" style="border-bottom:none; margin-bottom:12px; padding-bottom:0;">For companies
+                    with more than $10,000 in monthly ad spend. For brands
+                    scaling hard and agencies managing multiple clients. Full autonomy,
+                    white-label, and custom integrations.</div>
+
+                <div class="inc-title">What's Included :</div>
+                <div class="pricing-feat-list" style="margin-bottom:0;">
+                    <div class="pricing-feat-item" style="font-weight:700;">Everything in performance, plus</div>
+                    <div class="pricing-feat-item">Unlimited credits</div>
+                    <div class="pricing-feat-item">White-label platform for agencies</div>
+                    <div class="pricing-feat-item">Multi-account management dashboard</div>
+                    <div class="pricing-feat-item">Dedicated account manager</div>
+                    <div class="pricing-feat-item">Custom integrations on request</div>
+                    <div class="pricing-feat-item">Priority support (2hr response)</div>
+                    <div class="pricing-feat-item">SLA &amp; compliance agreements</div>
+                    <div class="pricing-feat-item">30% revenue share for agency resellers</div>
+                </div>
+
+                <div class="plan-cta">
+                    <a href="#" class="btn-outline">Get Started</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Value propositions -->
+        <div class="value-props">
+            <div class="value-prop">
+                <h3>Powered by the latest AI, that creates content when you sleep.</h3>
+            </div>
+            <div class="value-prop">
+                <h3>Built on top ecommerce brands</h3>
+                <p>Trained on high-performing ads from the world's leading brands.</p>
+            </div>
+            <div class="value-prop">
+                <h3>99+ Languages supported</h3>
+                <p>So you can speak to every market.</p>
+            </div>
+            <div class="value-prop" style="grid-column: span 3; text-align: center;">
+                <h3>24/7 Optimisation by AI</h3>
+                <p>Post, launch, and grow faster with swipe-ready ideas.</p>
+            </div>
+        </div>
+
+        <!-- Why Muze AI Pricing Works -->
+        <div class="why-pricing">
+            <h2>Why Muze AI Pricing Works</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    No hiring costs
+                </div>
+                <div class="why-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    No agency retainers
+                </div>
+                <div class="why-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    One AI platform replacing tools, teams, and agencies.
+                </div>
+                <div class="why-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    Scale creatives and performance instantly
+                </div>
+            </div>
+            <p class="why-note">Ad spend is paid directly to Meta and Google. Muze AI pricing covers platform access, AI
+                automation, and performance optimization services.</p>
+        </div>
+
+    </section>
+
+    <!-- COST TABLE -->
+    <section class="compare-section" style="margin-bottom: 80px;">
+        <div class="compare-wrap">
+            <div style="text-align: center; margin-bottom: 32px;">
+                <h2 style="font-size: 32px; font-weight: 800; color: #09090b;">The True Cost of Performance Marketing
+                </h2>
+            </div>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th class="compare-table__feat-col"></th>
+                        <th>
+                            <img src="https://framerusercontent.com/images/wQtvSE86geYyKN9BpUl5cpXsc.png" alt="Muze AI"
+                                class="compare-logo" style="height:32px; margin:0 auto;">
+                        </th>
+                        <th class="compare-table__neg">Agency</th>
+                        <th class="compare-table__neg">In House Team</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="compare-table__price-row">
+                        <td>Cost to you /month</td>
+                        <td class="compare-table__muze-price">$999</td>
+                        <td class="compare-table__agency-price">$10,000</td>
+                        <td class="compare-table__inhouse-price">$20,000</td>
+                    </tr>
+                    <tr>
+                        <td>End-to-end performance marketing</td>
+                        <td><span class="check">✓</span></td>
+                        <td class="compare-table__dim">$4K–6K</td>
+                        <td class="compare-table__dim">$4K–6K</td>
+                    </tr>
+                    <tr>
+                        <td>Weekly performance reporting</td>
+                        <td><span class="check">✓</span></td>
+                        <td class="compare-table__dim">$1K–2K</td>
+                        <td class="compare-table__dim">$1K–2K</td>
+                    </tr>
+                    <tr>
+                        <td>Unlimited ad creative</td>
+                        <td><span class="check">✓</span></td>
+                        <td class="compare-table__dim">$3K–5K</td>
+                        <td class="compare-table__dim">$3K–5K</td>
+                    </tr>
+                    <tr>
+                        <td>Automatic creative testing &amp; scaling</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="cross">✕</span></td>
+                        <td><span class="cross">✕</span></td>
+                    </tr>
+                    <tr>
+                        <td>Creative fatigue detection</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="cross">✕</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Works while you sleep</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="cross">✕</span></td>
+                        <td><span class="cross">✕</span></td>
+                    </tr>
+                    <tr>
+                        <td>Data-driven decisions at scale</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="cross">✕</span></td>
+                    </tr>
+                    <tr>
+                        <td>Speed of Execution</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="cross">✕</span></td>
+                        <td><span class="cross">✕</span></td>
+                    </tr>
+                    <tr>
+                        <td>No hiring. No onboarding.</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="cross">✕</span></td>
+                        <td><span class="cross">✕</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-header">FAQ</h2>
+            <div class="faq-list">
+
+                <details class="faq-item" open>
+                    <summary class="faq-question">What happens when I connect my account?<div class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Muze instantly audits your live campaigns — identifying wasted spend, fatiguing creatives,
+                            and underperforming audiences. You'll see exactly what's costing you money, before you spend
+                            anything on optimization.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">Is the $49 plan really monthly?<div class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Yes, $49/month with no lock-in. Cancel anytime. It's designed so you can experience Muze's
+                            creative quality and get a real audit before committing to full autonomy.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">What are credits?<div class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Credits are used for AI creative generation. On the $399 plan you get 400 credits/month —
+                            roughly 40–50 videos or 200 image ads. Credits reset monthly and don't roll over.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">Does Muze work for agencies?<div class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Yes. The $999+ AI Growth Operator plan includes white-label capabilities and a 30% revenue
+                            share model for agencies that resell Muze to their clients.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">What ad platforms are supported?<div class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Meta Ads (Facebook &amp; Instagram) and Google Ads (Search, Shopping, PMAX) are fully
+                            supported. Shopify integration is live on the App Store. TikTok Ads coming Q1–Q2 2026.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section class="footer-cta" style="background:#000; padding: 100px 24px; text-align:center;">
+        <div class="container" style="max-width:800px; margin:0 auto; color:#fff;">
+            <h2 style="font-size:48px; font-weight:800; line-height:1.1; margin-bottom:24px;">Ready to
+                create<br>agency-like ads?<br><span style="color:#a1a1aa; font-weight:400;">(Without the fees)</span>
+            </h2>
+            <a href="https://app.muzecmo.com/signup" class="btn-grad" style="max-width:200px; margin-top:24px;"
+                target="_blank" rel="noopener">Start Now</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="https://framerusercontent.com/images/wQtvSE86geYyKN9BpUl5cpXsc.png" alt="Muze AI Logo"
+                        class="footer-logo" />
+                    <p class="footer-made-in">Made with 💙 in San Francisco</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../privacy/index.html">Privacy Policy</a>
+                    <a href="../terms/index.html">Terms of Service</a>
+                </div>
+            </div>
+
+            <div class="footer-middle">
+                <div class="footer-contact">
+                    <p>hello@muzecmo.com</p>
+                    <a href="https://app.muzecmo.com/signup" class="btn btn-primary" style="margin-top: 16px;"
+                        target="_blank" rel="noopener">Start Now ➔</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Copyright © 2025 AgentProd Inc.<br>All Rights Reserved</p>
+            </div>
+        </div>
+
+        <!-- Floating Chat Icon -->
+        <a href="#" class="floating-chat" aria-label="Chat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+        </a>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: heyNoah.ai x Muze</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .cs-hero {
+            padding: 80px 24px;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cs-label {
+            color: #f97316;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .cs-title-h1 {
+            font-size: 48px;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .cs-subtitle {
+            font-size: 20px;
+            color: #52525b;
+            margin-bottom: 48px;
+        }
+
+        .cs-hero-imgs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .cs-hero-imgs img {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .cs-hero-imgs span {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d4d4d8;
+        }
+
+        .cs-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .cs-block {
+            margin-bottom: 64px;
+        }
+
+        .cs-block h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .cs-block p {
+            font-size: 18px;
+            color: #3f3f46;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .cs-block img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 24px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .cs-bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+        }
+
+        .cs-bullet-list li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 12px;
+            font-size: 18px;
+            color: #3f3f46;
+            line-height: 1.5;
+        }
+
+        .cs-bullet-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #00b67a;
+            font-weight: bold;
+        }
+
+        .cs-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .cs-grid-3 img {
+            margin: 0;
+        }
+
+        .cs-grid-5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .cs-grid-5 img {
+            margin: 0;
+        }
+
+        .cs-stats {
+            background: #f4f4f5;
+            padding: 32px;
+            border-radius: 16px;
+            margin-top: 48px;
+        }
+
+        .cs-stats h4 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #18181b;
+        }
+
+        .cs-takeaway {
+            background: linear-gradient(135deg, #f0fdf4 0%, #e0e7ff 100%);
+            padding: 40px;
+            border-radius: 24px;
+            margin-top: 64px;
+            text-align: center;
+        }
+
+        .cs-takeaway h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+
+        .cs-meta-box {
+            background: #fff;
+            border: 1px solid #e4e4e7;
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 48px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: space-between;
+        }
+
+        .cs-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .cs-meta-item strong {
+            font-size: 14px;
+            color: #71717a;
+            text-transform: uppercase;
+        }
+
+        .cs-meta-item span {
+            font-size: 16px;
+            color: #18181b;
+            font-weight: 500;
+        }
+
+        .cta-banner {
+            text-align: center;
+            padding: 100px 24px;
+            background: #f8fafc;
+        }
+
+        .cta-banner h2 {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .cta-banner p {
+            font-size: 20px;
+            color: #64748b;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 768px) {
+
+            .cs-grid-3,
+            .cs-grid-5 {
+                grid-template-columns: 1fr;
+            }
+
+            .cs-hero-imgs {
+                gap: 12px;
+            }
+
+            .cs-hero-imgs img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <header class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="../index.html" class="nav__logo">
+                <img src="https://framerusercontent.com/images/wQtvSE86geYyKN9BpUl5cpXsc.png" alt="Muze AI" width="36"
+                    height="36">
+                <strong>Muze AI</strong>
+            </a>
+            <div class="nav__links">
+                <a href="../pricing/index.html" class="nav__link">Pricing</a>
+                <a href="index.html" class="nav__link" style="color:var(--text);font-weight:600;">Case-study</a>
+                <a href="https://calendly.com/muzecmo/30min" class="nav__link" target="_blank">Talk to Sales</a>
+                <a href="https://app.muzecmo.com/signup" class="btn btn-dark" target="_blank" rel="noopener">Start
+                    Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CASE STUDY HERO -->
+    <section class="cs-hero">
+        <div class="cs-label">Case Study</div>
+        <h1 class="cs-title-h1">How heyNoah.ai Scaled from $2K to $60K Revenue in 3 Months with Muze</h1>
+        <p class="cs-subtitle">Muze — The AI Performance Marketer</p>
+
+        <div class="cs-hero-imgs">
+            <img src="https://framerusercontent.com/images/wQtvSE86geYyKN9BpUl5cpXsc.png?scale-down-to=512&width=921&height=921"
+                alt="Muze AI">
+            <span>✕</span>
+            <img src="https://framerusercontent.com/images/gOvNp7FH2oSUobu6b29aADjvI.jpg?width=512&height=512"
+                alt="heyNoah.ai">
+        </div>
+    </section>
+
+    <!-- CASE STUDY CONTENT -->
+    <section class="cs-content">
+
+        <div class="cs-block">
+            <h3>About heyNoah.ai</h3>
+            <p><strong>heyNoah.ai</strong> is an AI-powered therapist app helping users talk through thoughts, manage
+                anxiety, and receive mental health guidance without waiting for human therapists.</p>
+            <p>The brand has grown rapidly through social media, but after Meta’s Andromeda update, performance started
+                dipping due to shifting creative signals and algorithmic preferences.</p>
+            <img src="https://framerusercontent.com/images/HScegUWdEHiXp2H9LTWU4YH74Y.png?width=526&height=296"
+                alt="heyNoah Growth Graph">
+        </div>
+
+        <div class="cs-block">
+            <h3>About Muze</h3>
+            <p><strong>Muze is an AI Performance Marketer</strong> that automates ad analysis, creative strategy, and
+                budget optimization across Meta, Google, and TikTok Ads.</p>
+            <p>It acts like an autonomous media buyer — identifying what’s working, optimizing budgets in real time, and
+                even generating new creatives using AI.</p>
+
+            <p style="margin-top:24px; font-weight:600;">Muze helps DTC and app brands:</p>
+            <ul class="cs-bullet-list">
+                <li>Cut ad wastage by up to 30–40%</li>
+                <li>Discover new winning ad angles using competitive + creative intelligence</li>
+                <li>Automate ad testing and creative refresh cycles without manual work</li>
+            </ul>
+        </div>
+
+        <div class="cs-block">
+            <h3>Summary &amp; Problem Statement</h3>
+            <ul class="cs-bullet-list" style="margin-top:16px;">
+                <li><strong>Rising CACs</strong>: Post-Andromeda, ad performance dropped due to creative fatigue and
+                    lower CTRs.</li>
+                <li><strong>Lack of Creative Volume</strong>: The internal team couldn’t produce enough new creatives
+                    fast enough to test angles and hooks.</li>
+                <li><strong>Budget Waste</strong>: 25–30% of the ad spend was going to underperforming campaigns that
+                    were not getting conversions.</li>
+            </ul>
+            <img src="https://framerusercontent.com/images/AC5UdcdySfEn14345bD74gRM.webp?scale-down-to=2048&width=3070&height=444"
+                alt="Problem Graphs">
+        </div>
+
+        <div class="cs-block">
+            <h3>Agents Deployed</h3>
+            <img src="https://framerusercontent.com/images/FSUM43XdHNPHmndpNYrxssrYQSE.png?width=1292&height=524"
+                alt="Agents Deployed">
+        </div>
+
+        <div class="cs-block">
+            <h3>Creative Process Breakdown</h3>
+            <img src="https://framerusercontent.com/images/cwoxzFMVtzDCDgiy7uT2JkYosUM.webp?scale-down-to=2048&width=3108&height=1504"
+                alt="Creative Workflow">
+
+            <div style="margin-top:40px;">
+                <h4>1️⃣ Creative Intelligence (Learning from Past Data)</h4>
+                <p><strong>Problem</strong>: The team didn’t know which messaging angles or visuals truly resonated
+                    post-update.<br>
+                    <strong>Solution</strong>: Muze’s AI analyzed 100+ creative elements (tone, color, hook phrasing,
+                    intro timing) and found that:
+                </p>
+                <ul class="cs-bullet-list">
+                    <li>Ads starting with “You’re not alone” drove 2.1x higher CTR.</li>
+                    <li>Calm-toned, face-to-camera videos outperformed text-heavy creatives by 38%.</li>
+                </ul>
+                <img src="https://framerusercontent.com/images/MLsYKemzpZcDOvhRWbAYlQrMBP8.png?scale-down-to=2048&width=3360&height=2100"
+                    alt="Creative Intelligence Data">
+            </div>
+
+            <div style="margin-top:40px;">
+                <h4>2️⃣ Competitor Insights (Finding New Angles)</h4>
+                <p>Muze’s Competitive Analyzer identified top ad trends from other therapy and habit-building apps.<br>
+                    <strong>Example</strong>: Hooks like “Talk without judgment” and “Therapy that listens back” were
+                    driving high engagement — which Muze adapted into heyNoah’s creative direction.
+                </p>
+                <img src="https://framerusercontent.com/images/u5ObnwXmMFMgYOJa3eP77Y1ss8.png?scale-down-to=2048&width=3360&height=2100"
+                    alt="Insights">
+            </div>
+
+            <div style="margin-top:40px;">
+                <h4>3️⃣ Creative Generation (Scaling Content Volume)</h4>
+                <p>Muze generated over 40 new ad concepts across formats:</p>
+                <ul class="cs-bullet-list">
+                    <li>Static ads with emotional affirmations</li>
+                    <li>Short-form videos (UGC-style) introducing the AI therapist</li>
+                    <li>Carousel creatives highlighting different “moods” or “use cases”</li>
+                </ul>
+                <img src="https://framerusercontent.com/images/O4W3mByVynSABpMbCWLPSHyl9l0.png?scale-down-to=2048&width=3360&height=2100"
+                    alt="Generated Ads">
+            </div>
+
+            <div style="margin-top:40px;">
+                <h4>4️⃣ Ad Optimization &amp; Spend Allocation</h4>
+                <p>Once performance data started rolling in, Muze automatically:</p>
+                <ul class="cs-bullet-list">
+                    <li>Flagged ads with high CPC or low CTR as “fatigue risk”</li>
+                    <li>Reallocated 20% of ad spend to top-performing campaigns</li>
+                    <li>Auto-paused underperforming creatives without waiting for manual review</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cs-block">
+            <h3>Impact</h3>
+            <img src="https://framerusercontent.com/images/wGNzUs0K5hHQ1q67XfjJSTPM9Sc.png?width=1288&height=452"
+                alt="Impact Metics">
+        </div>
+
+        <div class="cs-block">
+            <h3>AI Generated Ads</h3>
+
+            <h4 style="margin-top:32px;">High Production Video Ads</h4>
+            <div class="cs-grid-3">
+                <img src="https://framerusercontent.com/images/phWSGnKk0OQctXZ7Q0AmRiHXfbQ.png?scale-down-to=1024&width=980&height=1746"
+                    alt="Video">
+                <img src="https://framerusercontent.com/images/d0ArgGpZQ77bjRxxLKUtreyltfs.png?scale-down-to=1024&width=1176&height=2090"
+                    alt="Video">
+                <img src="https://framerusercontent.com/images/VscqzewAGpcmJHsTnNVn0lcvM4.png?scale-down-to=1024&width=978&height=1746"
+                    alt="Video">
+            </div>
+
+            <h4 style="margin-top:48px;">Image Ads</h4>
+            <div class="cs-grid-5">
+                <img src="https://framerusercontent.com/images/yLgqcOqIaDctp7fl3o0qD8EBo.png?scale-down-to=1024&width=768&height=1344"
+                    alt="Image Ad">
+                <img src="https://framerusercontent.com/images/Nb584v9oS8Zz8T50bTGs8nLo6mg.png?scale-down-to=1024&width=768&height=1344"
+                    alt="Image Ad">
+                <img src="https://framerusercontent.com/images/BJ4uicnnogrk2LTSwPT0C5KlnP4.png?scale-down-to=1024&width=768&height=1344"
+                    alt="Image Ad">
+                <img src="https://framerusercontent.com/images/hjlUI9DkVecxRrEIPUeH5AwdpA.png?scale-down-to=1024&width=768&height=1344"
+                    alt="Image Ad">
+                <img src="https://framerusercontent.com/images/t7fXVZF97JgmpcRfakMU0cqTZg.png?scale-down-to=1024&width=768&height=1344"
+                    alt="Image Ad">
+            </div>
+
+            <h4 style="margin-top:48px;">UGC (User Generated Content) Ads</h4>
+            <div class="cs-grid-3">
+                <img src="https://framerusercontent.com/images/Ac4SbB0lbk6UcLUpT1IEGNArw.png?scale-down-to=1024&width=978&height=1750"
+                    alt="UGC">
+                <img src="https://framerusercontent.com/images/ymi2z9FwH15G2HcdJCt1xWfnRg.png?scale-down-to=1024&width=1178&height=2088"
+                    alt="UGC">
+                <img src="https://framerusercontent.com/images/pqWyff1Hu7PaPUcHc7WOQvDDoo.png?scale-down-to=1024&width=984&height=1754"
+                    alt="UGC">
+            </div>
+
+            <div style="margin-top:24px;text-align:center;">
+                <img src="https://framerusercontent.com/images/aP3nrnmsYlGOqjx615jfxRRIY.png?scale-down-to=512&width=1024&height=1024"
+                    alt="UGC Bonus" style="max-width:300px; margin:0 auto;">
+            </div>
+        </div>
+
+        <div class="cs-stats">
+            <h4>Results Summary</h4>
+            <p>Muze’s AI-driven creative diversification and optimization workflow helped heyNoah.ai:</p>
+            <ul class="cs-bullet-list" style="margin-top:16px; margin-bottom:0;">
+                <li>Adapt quickly to Meta’s new creative-ranking system</li>
+                <li>Generate high-performing ad concepts automatically</li>
+                <li>Save budget that was previously wasted on low-performing campaigns</li>
+                <li>Achieve faster feedback loops and consistent performance lift</li>
+            </ul>
+        </div>
+
+        <div class="cs-takeaway">
+            <h3>Key Takeaway</h3>
+            <p style="font-size:18px; line-height:1.6; color:#334155; margin-bottom:16px;">
+                By combining AI-led creative intelligence, competitive benchmarking, and autonomous optimization, Muze
+                became heyNoah.ai’s AI growth partner — not just an analysis tool.
+            </p>
+            <p style="font-size:18px; line-height:1.6; color:#334155;">
+                This approach unlocked <strong>40% lower cost per result</strong>, <strong>20% less spend
+                    waste</strong>, and a new repeatable creative testing framework for future scaling.
+            </p>
+        </div>
+
+        <div class="cs-meta-box">
+            <div class="cs-meta-item">
+                <strong>📍 Brand</strong>
+                <span>heyNoah.ai</span>
+            </div>
+            <div class="cs-meta-item">
+                <strong>💼 Category</strong>
+                <span>AI / Mental Health App</span>
+            </div>
+            <div class="cs-meta-item">
+                <strong>📊 Platform</strong>
+                <span>Meta Ads (Post-Andromeda Update)</span>
+            </div>
+            <div class="cs-meta-item">
+                <strong>🤖 Powered by</strong>
+                <span>Muze — The AI Performance Marketer</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" style="background:#fcfcfc;">
+        <div class="faq-container">
+            <h2 class="faq-header">FAQ</h2>
+            <div class="faq-list">
+                <details class="faq-item" open>
+                    <summary class="faq-question">What is Muze AI?<div class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Muze AI is an all-in-one AI-powered performance marketing platform that runs and optimizes
+                            Meta Ads and Google Ads end-to-end. It replaces agencies, tools, and manual workflows with
+                            an autonomous AI ads team.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How is Muze AI different from other AI advertising tools?<div
+                            class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Most AI tools only generate ad content. Muze AI manages the entire performance marketing
+                            workflow, including strategy, creatives, audience targeting, budget optimization, and
+                            continuous performance improvement.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Do I need performance marketing or technical knowledge to use Muze AI?
+                        <div class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>No. Muze AI is designed for founders and teams without marketing expertise. The platform
+                            handles everything automatically, without the need for agencies or in-house teams.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Which ad platforms does Muze AI support?<div class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Muze AI supports Meta Ads (Facebook and Instagram) and Google Ads, with full performance
+                            management across both platforms.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">What kind of ads can Muze AI create?<div class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Muze AI creates image ads, video ads, short-form videos, and B-roll creatives optimized for
+                            Meta Ads and Google Ads. The AI continuously tests and scales the best-performing creative
+                            formats automatically.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Can Muze AI manage and optimize existing ad accounts?<div
+                            class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Yes. Muze AI audits existing Meta and Google Ads accounts, identifies what to pause, fix, and
+                            scale, and continuously optimizes campaigns for better results.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Does Muze AI replace an ad agency or in-house team?<div
+                            class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Yes. Muze AI is built to replace performance marketing agencies and in-house ad teams by
+                            running ads end-to-end at a significantly lower cost.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Do I need a website to use Muze AI?<div class="faq-icon"></div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>A website helps Muze AI learn your brand and conversion signals faster. In some cases,
+                            limited setup may still be possible without a website.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Is Muze AI better than using ChatGPT for ads?<div class="faq-icon">
+                        </div>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>ChatGPT helps with ideas. Muze AI runs real performance marketing, directly managing Meta and
+                            Google Ads with live data, optimization, and scaling.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRE-FOOTER CTA -->
+    <div class="cta-banner">
+        <h2>Ready to create<br>agency-like ads?</h2>
+        <p>(Without the fees)</p>
+        <a href="https://app.muzecmo.com/signup" class="btn btn-grad btn-lg" target="_blank" rel="noopener">Start
+            Now</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="https://framerusercontent.com/images/wQtvSE86geYyKN9BpUl5cpXsc.png" alt="Muze AI Logo"
+                        class="footer-logo" />
+                    <p class="footer-made-in">Made with 💙 in San Francisco</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../privacy/index.html">Privacy Policy</a>
+                    <a href="../terms/index.html">Terms of Service</a>
+                </div>
+            </div>
+
+            <div class="footer-middle">
+                <div class="footer-contact">
+                    <p>hello@muzecmo.com</p>
+                    <a href="https://app.muzecmo.com/signup" class="btn btn-primary" style="margin-top: 16px;"
+                        target="_blank" rel="noopener">Start Now ➔</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Copyright © 2025 AgentProd Inc.<br>All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
